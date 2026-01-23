@@ -1,5 +1,5 @@
 {
-  "name": "@dvashim/typescript-configs",
+  "name": "@dvashim/typescript-config",
   "version": "1.0.0",
   "description": "Shared TypeScript configurations",
   "type": "module",
