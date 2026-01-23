@@ -1,0 +1,6 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.3.12/schema.json",
+  "extends": ["@dvashim/biome-config/all/recommended"],
+  "files": { "includes": ["*.json"] },
+  "vcs": { "useIgnoreFile": true }
+}

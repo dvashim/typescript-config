@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.lib.json",
+  "compilerOptions": {
+    "sourceMap": false, // Disable in prod (use build tool for sourcemaps)
+    "removeComments": true, // Strip all comments → smaller output
+    "declarationMap": false, // Skip .d.ts.map in prod
+    "inlineSources": false, // Don't inline source content
+    "stripInternal": true // Remove `/** @internal */` declarations
+  }
+}

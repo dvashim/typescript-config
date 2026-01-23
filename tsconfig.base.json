@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    // Core Modern JS
+    "module": "es2022", // Native ESM: import/export, tree-shakable
+    "target": "es2022", // Native support in all modern browsers & Node 18+
+
+    // Output & Source
+    "importsNotUsedAsValues": "remove", // Remove unused imports → smaller bundles
+    "moduleDetection": "force", // Control what method is used to detect module-format JS files
+    "moduleResolution": "bundler", // Fastest for Vite/Webpack/esbuild — skips Node.js "exports" quirks
+    "noEmitOnError": true, // Prevent broken builds
+    "noUncheckedSideEffectImports": true, // Check side effect imports
+    "verbatimModuleSyntax": true, // the glue between TypeScript and modern bundlers
+
+    // Browser APIs
+    "lib": [
+      "ES2022" // Modern JS features
+    ],
+
+    // Type Safety & Linting
+    "strict": true,
+    // Enables all strict type-checking options
+    // - alwaysStrict -- Parses in strict mode + emits "use strict". Catches JS footguns
+    // - noImplicitAny -- Errors on implicit any. Catches type holes
+    // - noImplicitThis -- Errors on this with implicit any. Prevents this misuse in arrows
+    // - strictBindCallApply -- Strict typing for bind, call, apply. func.call(null, ...) → error
+    // - strictFunctionTypes -- Stricter function parameter checking (contravariant). Protects callbacks
+    // - strictNullChecks -- null/undefined not assignable to other types. Prevents obj.prop on null
+    // - strictPropertyInitialization -- Class properties must be initialized. Catches this.x before assignment
+    "allowUnreachableCode": true, // Disable error reporting for unreachable code
+    "allowUnusedLabels": false, // Error reporting for unused labels
+    "erasableSyntaxOnly": true, // Do not allow runtime constructs that are not part of ECMAScript
+    "exactOptionalPropertyTypes": true, // `?` doesn't allow `undefined`
+    "forceConsistentCasingInFileNames": true, // Prevent import case-sensitivity issues
+    "noFallthroughCasesInSwitch": true, // Prevent switch fallthrough bugs
+    "noImplicitOverride": true, // Ensure overriding members in derived classes are marked with an override modifier
+    "noImplicitReturns": true, // Enable error reporting for codepaths that do not explicitly return in a function.
+    "noPropertyAccessFromIndexSignature": true, // Enforce `.prop` over `["prop"]` when known
+    "noUncheckedIndexedAccess": true, // Disable error reporting for index access that might be out of bounds
+    "noUnusedLocals": true, // Enable error reporting when local variables aren't read
+    "noUnusedParameters": true, // Raise an error when a function parameter isn't read.
+    "skipLibCheck": true, // Skip type checking of declaration files (faster)
+    "useDefineForClassFields": true, // Modern class field behavior
+
+    // Runtime & Compatibility
+    // "esModuleInterop": true, // Enables `import React from 'react'` (default exports)
+    // "allowSyntheticDefaultImports": true, // Allows default imports from modules with no default export
+    "allowJs": false, // Set true to include .js files
+    "resolveJsonModule": true // Allow `import config from './config.json'`
+
+    // Misc
+    // "checkJs": true,
+    // "declaration": true,
+    // "esModuleInterop": true,
+    // "isolatedModules": true,
+    // "noEmit": true,
+  }
+}
