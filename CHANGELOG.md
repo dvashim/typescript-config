@@ -1,5 +1,11 @@
 # @dvashim/typescript-config
 
+## 1.0.3
+
+### Patch Changes
+
+- [`c53f5e7`](https://github.com/dvashim/typescript-config/commit/c53f5e72a0c76f019dbb922cdb07a53e17571cb4) Thanks [@aleksei-reznichenko](https://github.com/aleksei-reznichenko)! - Testing release
+
 ## 1.0.2
 
 ### Patch Changes
