@@ -4,13 +4,14 @@
 
 ## Installation
 
-To install this package, you can use npm or pnpm:
+To install this package, you can use npm:
 
 ```bash
-# npm
 npm install -D @dvashim/typescript-config
+```
 
-# pnpm
+or pnpm:
+
+```bash
 pnpm add -D @dvashim/typescript-config
-
 ```
