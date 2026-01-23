@@ -24,11 +24,11 @@
   },
   "exports": {
     "./base": "./tsconfig.base.json",
-    "./lib": "./tsconfig.lib.json",
-    "./lib/dev": "./tsconfig.lib.json",
-    "./lib/prod": "./tsconfig.lib-prod.json"
+    "./lib": "./tsconfig.lib.dev.json",
+    "./lib/dev": "./tsconfig.lib.dev.json",
+    "./lib/prod": "./tsconfig.lib.prod.json"
   },
-  "files": ["tsconfig.*.json"],
+  "files": ["src"],
   "repository": {
     "type": "git",
     "url": "https://github.com/dvashim/typescript-config.git"

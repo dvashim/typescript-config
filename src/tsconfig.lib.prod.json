@@ -1,5 +1,5 @@
 {
-  "extends": "./tsconfig.lib.json",
+  "extends": "./tsconfig.lib.dev.json",
   "compilerOptions": {
     "sourceMap": false, // Disable in prod (use build tool for sourcemaps)
     "removeComments": true, // Strip all comments → smaller output
