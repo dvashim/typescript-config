@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.lib-dev.json",
+  "compilerOptions": {
+    "sourceMap": false,
+    "removeComments": true,
+    "declarationMap": false,
+    "inlineSources": false,
+    "stripInternal": true
+  }
+}
