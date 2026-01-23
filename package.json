@@ -4,12 +4,17 @@
   "description": "Shared TypeScript configurations",
   "type": "module",
   "scripts": {
-    "check": "biome check .",
+    "test:format": "biome format .",
+    "test:exports": "validate-package-exports --check --verify",
+    "test": "pnpm run \"/^test:.*/\"",
     "changeset": "changeset",
     "changeset:version": "changeset version",
     "changeset:publish": "changeset publish"
   },
-  "keywords": ["typescript", "config"],
+  "keywords": [
+    "typescript",
+    "config"
+  ],
   "author": {
     "name": "Aleksei Reznichenko",
     "email": "aleksei@dvashim.dev"
@@ -20,15 +25,18 @@
     "@biomejs/biome": "^2.3.12",
     "@changesets/changelog-github": "^0.5.2",
     "@changesets/cli": "^2.29.8",
-    "@dvashim/biome-config": "^1.0.8"
+    "@dvashim/biome-config": "^1.0.9",
+    "validate-package-exports": "^0.15.0"
   },
   "exports": {
-    "./base": "./tsconfig.base.json",
-    "./lib": "./tsconfig.lib.dev.json",
-    "./lib/dev": "./tsconfig.lib.dev.json",
-    "./lib/prod": "./tsconfig.lib.prod.json"
+    ".": "./dist/tsconfig.base.json",
+    "./base": "./dist/tsconfig.base.json",
+    "./lib": "./dist/lib/tsconfig.lib-dev.json",
+    "./lib/*": "./dist/lib/tsconfig.lib-*.json"
   },
-  "files": ["src"],
+  "files": [
+    "dist/**/*.json"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/dvashim/typescript-config.git"
