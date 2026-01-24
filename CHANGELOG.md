@@ -1,5 +1,11 @@
 # @dvashim/typescript-config
 
+## 1.1.1
+
+### Patch Changes
+
+- [#8](https://github.com/dvashim/typescript-config/pull/8) [`06352c0`](https://github.com/dvashim/typescript-config/commit/06352c004c1c6d92b94a5b11a0a962da3bd6bf3d) Thanks [@aleksei-reznichenko](https://github.com/aleksei-reznichenko)! - Add README badges
+
 ## 1.1.0
 
 ### Minor Changes
