@@ -1,5 +1,11 @@
 # @dvashim/typescript-config
 
+## 1.1.0
+
+### Minor Changes
+
+- [#6](https://github.com/dvashim/typescript-config/pull/6) [`f0da2aa`](https://github.com/dvashim/typescript-config/commit/f0da2aa09ce9979b24d9ae75bf232ecc93b09996) Thanks [@aleksei-reznichenko](https://github.com/aleksei-reznichenko)! - Update configs, add app/node for vite/react projects, improve README
+
 ## 1.0.3
 
 ### Patch Changes
