@@ -1,6 +1,6 @@
 # Using Typescript Configs
 
-[![Checked with Biome](https://img.shields.io/badge/Checked_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev)
+[![npm version](https://img.shields.io/npm/v/@dvashim/typescript-config.svg?logo=npm&style=flat-square&color2=07c)](https://www.npmjs.com/package/@dvashim/typescript-config) [![npm downloads](https://img.shields.io/npm/dm/@dvashim/typescript-config?logo=npm&style=flat-square&color=07c)](https://www.npmjs.com/package/@dvashim/typescript-config) [![Checked with Biome](https://img.shields.io/badge/Checked_with-Biome-60a5fa?style=flat-square&logo=biome&color=07c&logoColor=fff)](https://biomejs.dev)
 
 ## Installation
 
@@ -20,16 +20,16 @@ pnpm add -D @dvashim/typescript-config
 
 | Name | Path |
 |------|------|
-| Base | `@dvashim/typescript-config` or `@dvashim/typescript-config/base` |
-| Library production | `@dvashim/typescript-config/lib` or `@dvashim/typescript-config/lib/dev` |
-| Library development | `@dvashim/typescript-config/lib/prod` |
-| React JSX application | `@dvashim/typescript-config/app/react` |
-| Vite + React JSX application | `@dvashim/typescript-config/app/react/vite` |
-| Node | `@dvashim/typescript-config/node` |
+| Base configuration | `@dvashim/typescript-config` or `@dvashim/typescript-config/base` |
+| Library production configuration | `@dvashim/typescript-config/lib` or `@dvashim/typescript-config/lib/dev` |
+| Library development configuration | `@dvashim/typescript-config/lib/prod` |
+| React JSX application configuration | `@dvashim/typescript-config/app/react` |
+| Vite + React JSX application configuration | `@dvashim/typescript-config/app/react/vite` |
+| Node configuration | `@dvashim/typescript-config/node` |
 
 ## Description
 
-### Base config
+### Base configuration
 
 Path: `@dvashim/typescript-config` or `@dvashim/typescript-config/base`
 
