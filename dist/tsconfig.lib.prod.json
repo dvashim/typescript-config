@@ -1,5 +1,6 @@
 {
-  "extends": "./tsconfig.lib-dev.json",
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "./tsconfig.lib.dev.json",
   "compilerOptions": {
     "sourceMap": false,
     "removeComments": true,

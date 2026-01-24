@@ -31,11 +31,16 @@
   "exports": {
     ".": "./dist/tsconfig.base.json",
     "./base": "./dist/tsconfig.base.json",
-    "./lib": "./dist/lib/tsconfig.lib-dev.json",
-    "./lib/*": "./dist/lib/tsconfig.lib-*.json"
+    "./node": "./dist/tsconfig.node.json",
+    "./lib": "./dist/tsconfig.lib.dev.json",
+    "./lib/dev": "./dist/tsconfig.lib.dev.json",
+    "./lib/prod": "./dist/tsconfig.lib.prod.json",
+    "./app": "./dist/tsconfig.app.react.json",
+    "./app/react": "./dist/tsconfig.app.react.json",
+    "./app/react/vite": "./dist/tsconfig.app.react.vite.json"
   },
   "files": [
-    "dist/**/*.json"
+    "dist"
   ],
   "repository": {
     "type": "git",
