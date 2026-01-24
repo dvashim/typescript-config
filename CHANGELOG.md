@@ -1,5 +1,11 @@
 # @dvashim/typescript-config
 
+## 1.1.3
+
+### Patch Changes
+
+- [#12](https://github.com/dvashim/typescript-config/pull/12) [`3ce0afb`](https://github.com/dvashim/typescript-config/commit/3ce0afb65a690f5272dd41c55beaeabc38a82bdf) Thanks [@aleksei-reznichenko](https://github.com/aleksei-reznichenko)! - Fix badge label
+
 ## 1.1.2
 
 ### Patch Changes
