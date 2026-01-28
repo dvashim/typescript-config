@@ -31,10 +31,16 @@ pnpm add -D @dvashim/typescript-config
 
 Base configuration:
 
-> Very strict + future-proof setup with full ESM support (es2022 + verbatimModuleSyntax), bundler-friendly resolution, no emitted .js files on error, strong type-safety guards, and clean imports — ideal for libraries, Vite/React apps, monorepos and high-quality TypeScript projects that want to catch as many mistakes as possible at compile time.
-
 ```jsonc
 // tsconfig.json (base)
+
+// Very strict + future-proof setup with full ESM support
+// (es2022 + verbatimModuleSyntax), bundler-friendly resolution,
+// no emitted .js files on error, strong type-safety guards,
+// and clean imports — ideal for libraries, Vite/React apps,
+// monorepos and high-quality TypeScript projects
+// that want to catch as many mistakes as possible at compile time.
+
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@dvashim/typescript-config",
@@ -47,10 +53,14 @@ Base configuration:
 
 Library development configuration:
 
-> Modern strict es2022 + ESM + bundler-mode configuration for libraries / monorepos / bundler-based projects with verbatimModuleSyntax, full strictness, clean .d.ts emit (best practices)
-
 ```jsonc
 // tsconfig.json (library development)
+
+// Modern strict es2022 + ESM + bundler-mode configuration
+// for libraries / monorepos / bundler-based projects
+// with verbatimModuleSyntax, full strictness,
+// clean .d.ts emit (best practices)
+
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@dvashim/typescript-config/lib/dev",
@@ -63,10 +73,15 @@ Library development configuration:
 
 Library production configuration:
 
-> Modern strict es2022 + ESM + bundler-mode configuration for libraries / monorepos / bundler-based projects with verbatimModuleSyntax, full strictness, clean .d.ts emit, no source maps / comments (best practices)
-
 ```jsonc
 // tsconfig.json (library production)
+
+// Modern strict es2022 + ESM + bundler-mode configuration
+// for libraries / monorepos / bundler-based projects
+// with verbatimModuleSyntax, full strictness,
+// clean .d.ts emit, no source maps / comments
+// (best practices)
+
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@dvashim/typescript-config/lib/prod",
@@ -79,11 +94,17 @@ Library production configuration:
 
 React JSX application configuration:
 
-> Strict, modern, no-emit configuration for React + ESM/bundler workflows (Vite/Turbopack/esbuild compatible) with verbatim module syntax and full type safety.
-Very strict settings, modern ESM resolution, React JSX transform, no emitted .js files, supports importing .ts/.tsx extensions directly.
-
 ```jsonc
 // tsconfig.json (react jsx application)
+
+// Strict, modern, no-emit configuration for
+// React + ESM/bundler workflows
+// (Vite/Turbopack/esbuild compatible)
+// with verbatim module syntax and full type safety.
+// Very strict settings, modern ESM resolution,
+// React JSX transform, no emitted .js files,
+// supports importing .ts/.tsx extensions directly.
+
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@dvashim/typescript-config/app/react",
@@ -96,11 +117,16 @@ Very strict settings, modern ESM resolution, React JSX transform, no emitted .js
 
 Vite + React JSX application configuration:
 
-> Strict, modern, no-emit configuration for Vite + React projects with verbatim module syntax and full type safety.
-Very strict settings, modern ESM resolution, React JSX transform, no emitted .js files, supports importing .ts/.tsx extensions directly.
-
 ```jsonc
 // tsconfig.json (vite + react jsx application)
+
+// Strict, modern, no-emit configuration for
+// Vite + React projects with verbatim module syntax
+// and full type safety.
+// Very strict settings, modern ESM resolution,
+// React JSX transform, no emitted .js files,
+// supports importing .ts/.tsx extensions directly.
+
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@dvashim/typescript-config/app/react/vite",
@@ -113,10 +139,14 @@ Very strict settings, modern ESM resolution, React JSX transform, no emitted .js
 
 Node configuration:
 
-> Strict configuration for ESM + bundler environments (Vite, esbuild, Bun, Parcel, Turbopack, Rollup, etc.) Designed for tools that handle bundling, transpilation and module resolution themselves
-
 ```jsonc
 // tsconfig.json (node)
+
+// Strict configuration for ESM + bundler environments
+// (Vite, esbuild, Bun, Parcel, Turbopack, Rollup, etc.)
+// Designed for tools that handle bundling, transpilation
+// and module resolution themselves
+
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@dvashim/typescript-config/node",
