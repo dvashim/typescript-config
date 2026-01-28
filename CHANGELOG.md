@@ -1,5 +1,11 @@
 # @dvashim/typescript-config
 
+## 1.1.5
+
+### Patch Changes
+
+- [#16](https://github.com/dvashim/typescript-config/pull/16) [`4da7a61`](https://github.com/dvashim/typescript-config/commit/4da7a610e691bc4c4b393d8d6feccb3e7401e616) Thanks [@aleksei-reznichenko](https://github.com/aleksei-reznichenko)! - Update Biome and configs
+
 ## 1.1.4
 
 ### Patch Changes
