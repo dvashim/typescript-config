@@ -1,5 +1,11 @@
 # @dvashim/typescript-config
 
+## 1.1.7
+
+### Patch Changes
+
+- [#21](https://github.com/dvashim/typescript-config/pull/21) [`178f8c2`](https://github.com/dvashim/typescript-config/commit/178f8c202dd129da51184cad29f51eed60c9b628) Thanks [@aleksei-reznichenko](https://github.com/aleksei-reznichenko)! - Minor updates
+
 ## 1.1.6
 
 ### Patch Changes
