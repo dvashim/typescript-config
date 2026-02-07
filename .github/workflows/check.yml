@@ -1,13 +1,20 @@
-name: Test
+name: Check
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   pull_request:
-    types: [opened, synchronize]
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  test:
+  check:
+    name: Check format and package exports
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -17,4 +24,4 @@ jobs:
           node-version: 'lts/*'
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
-      - run: pnpm run test
+      - run: pnpm run check
