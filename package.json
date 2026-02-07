@@ -4,12 +4,10 @@
   "description": "Shared TypeScript configurations",
   "type": "module",
   "scripts": {
-    "test:format": "biome format .",
-    "test:exports": "validate-package-exports --check --verify",
-    "test": "pnpm run \"/^test:.*/\"",
-    "changeset": "changeset",
-    "changeset:version": "changeset version",
-    "changeset:publish": "changeset publish"
+    "check:format": "biome format .",
+    "check:exports": "validate-package-exports --check",
+    "check": "pnpm run \"/^check:.*/\"",
+    "changeset": "changeset"
   },
   "keywords": [
     "typescript",
@@ -19,25 +17,29 @@
     "name": "Aleksei Reznichenko",
     "email": "aleksei@dvashim.dev"
   },
-  "license": "ISC",
+  "license": "MIT",
   "packageManager": "pnpm@10.28.1",
   "devDependencies": {
-    "@biomejs/biome": "^2.3.13",
+    "@biomejs/biome": "^2.3.14",
     "@changesets/changelog-github": "^0.5.2",
     "@changesets/cli": "^2.29.8",
-    "@dvashim/biome-config": "^1.1.6",
-    "validate-package-exports": "^0.15.0"
+    "@dvashim/biome-config": "^1.1.10",
+    "validate-package-exports": "^0.16.0"
   },
   "exports": {
     ".": "./dist/tsconfig.base.json",
     "./base": "./dist/tsconfig.base.json",
     "./node": "./dist/tsconfig.node.json",
-    "./lib": "./dist/tsconfig.lib.dev.json",
-    "./lib/dev": "./dist/tsconfig.lib.dev.json",
-    "./lib/prod": "./dist/tsconfig.lib.prod.json",
-    "./app": "./dist/tsconfig.app.react.json",
-    "./app/react": "./dist/tsconfig.app.react.json",
-    "./app/react/vite": "./dist/tsconfig.app.react.vite.json"
+    "./lib": "./dist/tsconfig.lib-dev.json",
+    "./lib/dev": "./dist/tsconfig.lib-dev.json",
+    "./lib/prod": "./dist/tsconfig.lib-prod.json",
+    "./lib-dev": "./dist/tsconfig.lib-dev.json",
+    "./lib-prod": "./dist/tsconfig.lib-prod.json",
+    "./app": "./dist/tsconfig.app-react.json",
+    "./app/react": "./dist/tsconfig.app-react.json",
+    "./app/react/vite": "./dist/tsconfig.app-react-vite.json",
+    "./app-react": "./dist/tsconfig.app-react.json",
+    "./app-react-vite": "./dist/tsconfig.app-react-vite.json"
   },
   "files": [
     "dist"
