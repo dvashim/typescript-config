@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "../dist/tsconfig.app-react-vite.json",
+  "include": ["src"],
+  "compilerOptions": {
+    "tsBuildInfoFile": ".tsbuildinfo/tsconfig.app-react-vite.tsbuildinfo",
+    "noEmit": true,
+    "types": [],
+    "lib": ["ES2022", "DOM"]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "../dist/tsconfig.node.json",
+  "include": ["src"],
+  "compilerOptions": {
+    "tsBuildInfoFile": ".tsbuildinfo/tsconfig.node.tsbuildinfo",
+    "noEmit": true,
+    "types": [],
+    "lib": ["ES2022", "DOM"]
+  }
+}

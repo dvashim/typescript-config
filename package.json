@@ -6,6 +6,7 @@
   "scripts": {
     "check:format": "biome format .",
     "check:exports": "validate-package-exports --check",
+    "check:ts": "ls -1 ./tests/*.json | xargs -n1 tsc -p",
     "check": "pnpm run \"/^check:.*/\"",
     "changeset": "changeset"
   },
@@ -20,11 +21,12 @@
   "license": "MIT",
   "packageManager": "pnpm@10.28.1",
   "devDependencies": {
-    "@biomejs/biome": "^2.3.14",
+    "@biomejs/biome": "^2.3.15",
     "@changesets/changelog-github": "^0.5.2",
     "@changesets/cli": "^2.29.8",
-    "@dvashim/biome-config": "^1.1.10",
-    "validate-package-exports": "^0.16.0"
+    "@dvashim/biome-config": "^1.1.12",
+    "typescript": "^5.9.3",
+    "validate-package-exports": "^0.17.0"
   },
   "exports": {
     ".": "./dist/tsconfig.base.json",
