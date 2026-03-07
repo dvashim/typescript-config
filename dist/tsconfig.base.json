@@ -1,31 +1,37 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
+    // Module
     "module": "es2022",
-    "target": "es2022",
-    "importsNotUsedAsValues": "remove",
     "moduleDetection": "force",
     "moduleResolution": "bundler",
-    "noEmitOnError": true,
-    "noUncheckedSideEffectImports": true,
     "verbatimModuleSyntax": true,
-    "lib": ["ES2022"],
+    "resolveJsonModule": true,
+
+    // Strictness
     "strict": true,
-    "allowUnreachableCode": true,
-    "allowUnusedLabels": false,
-    "erasableSyntaxOnly": true,
     "exactOptionalPropertyTypes": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
-    "noImplicitReturns": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
+
+    // Safety
+    "noUncheckedSideEffectImports": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "skipLibCheck": true,
-    "useDefineForClassFields": true,
     "allowJs": false,
-    "resolveJsonModule": true
+
+    // Emit
+    "target": "es2022",
+    "noEmitOnError": true,
+    "lib": ["ES2022"],
+    "erasableSyntaxOnly": true,
+    "skipLibCheck": true,
+    "useDefineForClassFields": true
   }
 }

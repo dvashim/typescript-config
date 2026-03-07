@@ -4,8 +4,6 @@
   "include": ["src"],
   "compilerOptions": {
     "tsBuildInfoFile": ".tsbuildinfo/tsconfig.app-react-vite.tsbuildinfo",
-    "noEmit": true,
-    "types": [],
-    "lib": ["ES2022", "DOM"]
+    "noEmit": true
   }
 }

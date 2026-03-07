@@ -4,7 +4,6 @@
   "include": ["src"],
   "compilerOptions": {
     "tsBuildInfoFile": ".tsbuildinfo/tsconfig.base.tsbuildinfo",
-    "noEmit": true,
-    "lib": ["ES2022", "DOM"]
+    "noEmit": true
   }
 }

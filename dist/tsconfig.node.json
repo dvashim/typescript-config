@@ -2,11 +2,18 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
+    // Module
     "module": "esnext",
+    "allowImportingTsExtensions": true,
+
+    // Target / Language
     "target": "es2023",
     "lib": ["ES2023"],
+
+    // Types
     "types": ["node"],
-    "allowImportingTsExtensions": true,
+
+    // Emit
     "noEmit": true
   }
 }

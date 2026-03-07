@@ -21,10 +21,10 @@ pnpm add -D @dvashim/typescript-config
 | Name | Path |
 |------|------|
 | Base | `@dvashim/typescript-config` or `@dvashim/typescript-config/base` |
-| Library development | `@dvashim/typescript-config/lib` or `@dvashim/typescript-config/lib/dev` |
-| Library production | `@dvashim/typescript-config/lib/prod` |
-| React JSX application | `@dvashim/typescript-config/app/react` |
-| Vite + React JSX application | `@dvashim/typescript-config/app/react/vite` |
+| Library development | `@dvashim/typescript-config/lib/dev` or `@dvashim/typescript-config/lib-dev` |
+| Library production | `@dvashim/typescript-config/lib/prod` or `@dvashim/typescript-config/lib-prod` |
+| React JSX application | `@dvashim/typescript-config/app/react` or `@dvashim/typescript-config/app-react` |
+| Vite + React JSX application | `@dvashim/typescript-config/app/react/vite` or `@dvashim/typescript-config/app-react-vite` |
 | Node | `@dvashim/typescript-config/node` |
 
 ## Use
@@ -34,19 +34,14 @@ Base configuration:
 ```jsonc
 // tsconfig.json (base)
 
-// Very strict + future-proof setup with full ESM support
-// (es2022 + verbatimModuleSyntax), bundler-friendly resolution,
-// no emitted .js files on error, strong type-safety guards,
-// and clean imports — ideal for libraries, Vite/React apps,
-// monorepos and high-quality TypeScript projects
-// that want to catch as many mistakes as possible at compile time.
+// Strict ES2022 + ESM foundation with bundler resolution.
+// Enforces verbatim module syntax, erasable-only syntax,
+// and maximum type safety (strict, exactOptionalPropertyTypes,
+// noUncheckedIndexedAccess, noUnusedLocals, etc.).
 
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@dvashim/typescript-config",
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.base.tsbuildinfo",
-  },
   "include": ["src"]
 }
 ```
@@ -56,17 +51,14 @@ Library development configuration:
 ```jsonc
 // tsconfig.json (library development)
 
-// Modern strict es2022 + ESM + bundler-mode configuration
-// for libraries / monorepos / bundler-based projects
-// with verbatimModuleSyntax, full strictness,
-// clean .d.ts emit (best practices)
+// Extends base for library development.
+// Enables .d.ts declarations, composite builds,
+// source maps, and declaration maps.
+// Preserves comments for development.
 
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@dvashim/typescript-config/lib/dev",
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.dev.tsbuildinfo",
-  },
+  "extends": "@dvashim/typescript-config/lib-dev",
   "include": ["src"]
 }
 ```
@@ -76,18 +68,13 @@ Library production configuration:
 ```jsonc
 // tsconfig.json (library production)
 
-// Modern strict es2022 + ESM + bundler-mode configuration
-// for libraries / monorepos / bundler-based projects
-// with verbatimModuleSyntax, full strictness,
-// clean .d.ts emit, no source maps / comments
-// (best practices)
+// Extends lib-dev for production builds.
+// Strips source maps, declaration maps, comments,
+// and @internal declarations for minimal output.
 
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@dvashim/typescript-config/lib/prod",
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.prod.tsbuildinfo",
-  },
+  "extends": "@dvashim/typescript-config/lib-prod",
   "include": ["src"]
 }
 ```
@@ -97,20 +84,14 @@ React JSX application configuration:
 ```jsonc
 // tsconfig.json (react jsx application)
 
-// Strict, modern, no-emit configuration for
-// React + ESM/bundler workflows
-// (Vite/Turbopack/esbuild compatible)
-// with verbatim module syntax and full type safety.
-// Very strict settings, modern ESM resolution,
-// React JSX transform, no emitted .js files,
-// supports importing .ts/.tsx extensions directly.
+// Extends base for React applications.
+// Adds DOM + DOM.Iterable libs, automatic JSX runtime,
+// esnext modules, and .ts/.tsx extension imports.
+// No emit — bundler handles output.
 
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@dvashim/typescript-config/app/react",
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-  },
+  "extends": "@dvashim/typescript-config/app-react",
   "include": ["src"]
 }
 ```
@@ -120,19 +101,12 @@ Vite + React JSX application configuration:
 ```jsonc
 // tsconfig.json (vite + react jsx application)
 
-// Strict, modern, no-emit configuration for
-// Vite + React projects with verbatim module syntax
-// and full type safety.
-// Very strict settings, modern ESM resolution,
-// React JSX transform, no emitted .js files,
-// supports importing .ts/.tsx extensions directly.
+// Extends React config with Vite client types
+// (import.meta.env, import.meta.hot, asset imports).
 
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@dvashim/typescript-config/app/react/vite",
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-  },
+  "extends": "@dvashim/typescript-config/app-react-vite",
   "include": ["src"]
 }
 ```
@@ -142,10 +116,10 @@ Node configuration:
 ```jsonc
 // tsconfig.json (node)
 
-// Strict configuration for ESM + bundler environments
-// (Vite, esbuild, Bun, Parcel, Turbopack, Rollup, etc.)
-// Designed for tools that handle bundling, transpilation
-// and module resolution themselves
+// Extends base for Node.js tooling files
+// (build configs, scripts). ES2023 target, @types/node,
+// esnext modules, and .ts extension imports.
+// No emit — bundler handles output.
 
 {
   "$schema": "https://json.schemastore.org/tsconfig",
@@ -176,9 +150,9 @@ Node configuration:
 
 * Safety
 
-  * **[noUncheckedSideEffectImports](https://www.typescriptlang.org/tsconfig#noUncheckedSideEffectImports)**: `true` — Reports errors for side-effect imports that are not explicitly used.
-  * **[allowUnreachableCode](https://www.typescriptlang.org/tsconfig#allowUnreachableCode)**: `true` — Allows unreachable code without compiler errors.
-  * **[allowUnusedLabels](https://www.typescriptlang.org/tsconfig#allowUnusedLabels)**: `false` — Disallows unused labels in the code.
+  * **[noUncheckedSideEffectImports](https://www.typescriptlang.org/tsconfig#noUncheckedSideEffectImports)**: `true` — Reports errors for side-effect imports that can't be resolved.
+  * **[allowUnreachableCode](https://www.typescriptlang.org/tsconfig#allowUnreachableCode)**: `false` — Reports errors for unreachable code after `return`, `throw`, `break`, or `continue`.
+  * **[allowUnusedLabels](https://www.typescriptlang.org/tsconfig#allowUnusedLabels)**: `false` — Reports errors for unused labels in the code.
   * **[forceConsistentCasingInFileNames](https://www.typescriptlang.org/tsconfig#forceConsistentCasingInFileNames)**: `true` — Ensures consistent casing in file name imports across the project.
   * **[noFallthroughCasesInSwitch](https://www.typescriptlang.org/tsconfig#noFallthroughCasesInSwitch)**: `true` — Reports errors for fallthrough cases in `switch` statements.
   * **[noImplicitReturns](https://www.typescriptlang.org/tsconfig#noImplicitReturns)**: `true` — Reports errors when not all code paths in a function return a value.
@@ -189,36 +163,99 @@ Node configuration:
 * Emit
 
   * **[target](https://www.typescriptlang.org/tsconfig#target)**: `es2022` — Sets the JavaScript language version for emitted output.
-  * **[importsNotUsedAsValues](https://www.typescriptlang.org/tsconfig#importsNotUsedAsValues)**: `remove` — Removes imports used only for types from emitted JavaScript.
   * **[noEmitOnError](https://www.typescriptlang.org/tsconfig#noEmitOnError)**: `true` — Prevents emitting output files when type errors are present.
   * **[lib](https://www.typescriptlang.org/tsconfig#lib)**: `["ES2022"]` — Specifies built-in library declaration files included in compilation.
-  * **[erasableSyntaxOnly](https://www.typescriptlang.org/tsconfig#erasableSyntaxOnly)**: `true` — Restricts usage to syntax that can be fully erased during compilation.
+  * **[erasableSyntaxOnly](https://www.typescriptlang.org/tsconfig#erasableSyntaxOnly)**: `true` — Restricts usage to syntax that can be fully erased during compilation (no enums, namespaces, or parameter properties).
   * **[skipLibCheck](https://www.typescriptlang.org/tsconfig#skipLibCheck)**: `true` — Skips type checking of declaration files for faster builds.
   * **[useDefineForClassFields](https://www.typescriptlang.org/tsconfig#useDefineForClassFields)**: `true` — Emits class fields using ECMAScript-standard `define` semantics.
 
 ---
 
-### Node configuration
+### Library development configuration
 
-This configuration extends the base configuration and overrides some compiler options
+Extends the base configuration with emit settings for `.d.ts` generation and incremental builds.
+
+* Declarations
+
+  * **[declaration](https://www.typescriptlang.org/tsconfig#declaration)**: `true` — Emits `.d.ts` type declaration files alongside JavaScript output.
+  * **[composite](https://www.typescriptlang.org/tsconfig#composite)**: `true` — Enables project references and incremental compilation.
+  * **[declarationMap](https://www.typescriptlang.org/tsconfig#declarationMap)**: `true` — Generates source maps for `.d.ts` files, enabling "Go to Definition" to navigate to the original source.
+
+* Source Maps
+
+  * **[sourceMap](https://www.typescriptlang.org/tsconfig#sourceMap)**: `true` — Generates `.js.map` source map files for debugging.
+  * **[removeComments](https://www.typescriptlang.org/tsconfig#removeComments)**: `false` — Preserves comments in emitted JavaScript.
+
+---
+
+### Library production configuration
+
+Extends the library development configuration and strips debug artifacts for smaller, cleaner output.
+
+* Source Maps
+
+  * **[sourceMap](https://www.typescriptlang.org/tsconfig#sourceMap)**: `false` — Disables `.js.map` source map generation.
+  * **[declarationMap](https://www.typescriptlang.org/tsconfig#declarationMap)**: `false` — Disables `.d.ts.map` source map generation.
+  * **[inlineSources](https://www.typescriptlang.org/tsconfig#inlineSources)**: `false` — Prevents embedding source code inside source maps.
+
+* Output
+
+  * **[removeComments](https://www.typescriptlang.org/tsconfig#removeComments)**: `true` — Strips comments from emitted JavaScript.
+  * **[stripInternal](https://www.typescriptlang.org/tsconfig#stripInternal)**: `true` — Removes declarations marked with `@internal` JSDoc tags from `.d.ts` output.
+
+---
+
+### React JSX application configuration
+
+Extends the base configuration for React applications with DOM types and no-emit mode.
 
 * Module
 
-  * **[module](https://www.typescriptlang.org/tsconfig#module)**: `esnext` — Specifies the module code generation format.
+  * **[module](https://www.typescriptlang.org/tsconfig#module)**: `esnext` — Uses the latest module features for bundler consumption.
+  * **[allowImportingTsExtensions](https://www.typescriptlang.org/tsconfig#allowImportingTsExtensions)**: `true` — Allows importing TypeScript files with explicit `.ts`/`.tsx` extensions.
+
+* JSX
+
+  * **[jsx](https://www.typescriptlang.org/tsconfig#jsx)**: `react-jsx` — Uses the automatic React JSX runtime (`react/jsx-runtime`), no manual `import React` needed.
+
+* Environment
+
+  * **[lib](https://www.typescriptlang.org/tsconfig#lib)**: `["ES2022", "DOM", "DOM.Iterable"]` — Includes ES2022 APIs, DOM APIs, and iterable DOM collections (`NodeList.forEach`, `FormData` entries, etc.).
 
 * Emit
 
-  * **[noEmit](https://www.typescriptlang.org/tsconfig#noEmit)**: `true` — Disables emitting compiled JavaScript files.
+  * **[noEmit](https://www.typescriptlang.org/tsconfig#noEmit)**: `true` — Disables emitting compiled JavaScript files (bundler handles output).
+
+---
+
+### Vite + React JSX application configuration
+
+Extends the React JSX application configuration with Vite-specific type declarations.
+
+* Types
+
+  * **[types](https://www.typescriptlang.org/tsconfig#types)**: `["vite/client"]` — Includes Vite client types (`import.meta.env`, `import.meta.hot`, asset imports). Restricts auto-included global types to only `vite/client`.
+
+---
+
+### Node configuration
+
+Extends the base configuration for Node.js tooling files (Vite configs, build scripts, etc.) processed by bundlers.
+
+* Module
+
+  * **[module](https://www.typescriptlang.org/tsconfig#module)**: `esnext` — Uses the latest module features for bundler consumption.
+  * **[allowImportingTsExtensions](https://www.typescriptlang.org/tsconfig#allowImportingTsExtensions)**: `true` — Allows importing TypeScript files with explicit `.ts` extensions.
 
 * Target / Language
 
   * **[target](https://www.typescriptlang.org/tsconfig#target)**: `es2023` — Sets the JavaScript language version for emitted output.
-  * **[lib](https://www.typescriptlang.org/tsconfig#lib)**: `["ES2023"]` — Specifies built-in library declaration files included in compilation.
+  * **[lib](https://www.typescriptlang.org/tsconfig#lib)**: `["ES2023"]` — Includes ES2023 library declarations (e.g., `Array.findLast`, `Array.findLastIndex`).
 
 * Types
 
-  * **[types](https://www.typescriptlang.org/tsconfig#types)**: `["node"]` — Includes type declarations for Node.js.
+  * **[types](https://www.typescriptlang.org/tsconfig#types)**: `["node"]` — Includes type declarations for Node.js globals and built-in modules.
 
-* Module Features
+* Emit
 
-  * **[allowImportingTsExtensions](https://www.typescriptlang.org/tsconfig#allowImportingTsExtensions)**: `true` — Allows importing TypeScript files with explicit `.ts` extensions.
+  * **[noEmit](https://www.typescriptlang.org/tsconfig#noEmit)**: `true` — Disables emitting compiled JavaScript files (bundler handles output).
