@@ -31,11 +31,11 @@ tsconfig.base.json          ← foundation: strict es2022 + ESM + bundler resolu
 
 ### Package exports mapping
 
-Configs are exposed via `exports` in `package.json` with multiple entry points (e.g., `./base`, `./lib/dev`, `./lib/prod`, `./app/react`, `./app/react/vite`, `./node`). Legacy flat aliases (`./lib-dev`, `./lib-prod`, `./app-react`, `./app-react-vite`) are also maintained.
+Configs are exposed via `exports` in `package.json` with both nested and flat path styles (e.g., `./lib/dev` and `./lib-dev` both resolve to the same config). Short aliases `./lib` → lib-dev, `./app` → app-react are also provided.
 
 ### Testing
 
-Tests live in `tests/` — one `tsconfig-test.*.json` per config variant. Each extends the corresponding `dist/` config and compiles `tests/src/test.ts`. The `check:ts` script iterates over all test configs with `tsc -p`.
+Tests live in `tests/` — one `tsconfig-test.*.json` per config variant. Each extends the corresponding `dist/` config and compiles `tests/src/test.ts` (with `tests/src/globals.d.ts` providing `console` for non-DOM configs). The `check:ts` script iterates over all test configs with `tsc -p`.
 
 ### Releases
 
