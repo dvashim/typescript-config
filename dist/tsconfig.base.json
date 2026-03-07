@@ -3,7 +3,6 @@
   "compilerOptions": {
     "module": "es2022",
     "target": "es2022",
-    "importsNotUsedAsValues": "remove",
     "moduleDetection": "force",
     "moduleResolution": "bundler",
     "noEmitOnError": true,
@@ -11,7 +10,7 @@
     "verbatimModuleSyntax": true,
     "lib": ["ES2022"],
     "strict": true,
-    "allowUnreachableCode": true,
+    "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "erasableSyntaxOnly": true,
     "exactOptionalPropertyTypes": true,
