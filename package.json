@@ -6,7 +6,7 @@
   "scripts": {
     "check:format": "biome format .",
     "check:exports": "validate-package-exports --check",
-    "check:ts": "ls -1 ./tests/*.json | xargs -n1 tsc -p",
+    "check:ts": "for f in ./tests/*.json; do tsc -p \"$f\" || exit 1; done",
     "check": "pnpm run \"/^check:.*/\"",
     "changeset": "changeset"
   },
