@@ -1,5 +1,18 @@
 # @dvashim/typescript-config
 
+## 1.1.10
+
+### Patch Changes
+
+- [#27](https://github.com/dvashim/typescript-config/pull/27) [`8f32639`](https://github.com/dvashim/typescript-config/commit/8f326398ae4c80019859d0284b5ec99d70b25755) Thanks [@aleksei-reznichenko](https://github.com/aleksei-reznichenko)! - Improve CI/CD workflows and fix internal tooling
+
+  - **CI:** Add explicit permissions to check and release workflows
+  - **CI:** Prevent release workflow from re-triggering on bot commits
+  - **CI:** Run checks before publishing in release workflow
+  - **Fix:** Improve `check:ts` script to properly exit on TypeScript errors
+  - **Config:** Change changeset access level from restricted to public
+  - **Deps:** Update devDependencies (biome, changesets, biome-config, validate-package-exports)
+
 ## 1.1.9
 
 ### Patch Changes
