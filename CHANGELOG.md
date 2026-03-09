@@ -1,5 +1,15 @@
 # @dvashim/typescript-config
 
+## 1.1.12
+
+### Patch Changes
+
+- [#31](https://github.com/dvashim/typescript-config/pull/31) [`e641ab6`](https://github.com/dvashim/typescript-config/commit/e641ab61098624460b6403472bb77f15e2c31b8f) Thanks [@aleksei-reznichenko](https://github.com/aleksei-reznichenko)! - Reorganize all config files and README by official TSConfig reference categories
+
+  - **Base config:** Reorganize options by official categories (Type Checking, Modules, Emit, JavaScript Support, Interop Constraints, Language and Environment, Completeness), add `types: []` to prevent auto-inclusion of `@types/*` packages, add `isolatedModules: true` for safe isolated transpilation
+  - **Extending configs:** Align category comments with official TSConfig categories (Modules, Emit, Language and Environment, Projects)
+  - **README:** Update Rules section to match new category structure, document `types` and `isolatedModules` options
+
 ## 1.1.11
 
 ### Patch Changes
