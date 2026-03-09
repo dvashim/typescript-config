@@ -1,37 +1,45 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    // Module
+    // Type Checking
+    "strict": true,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUncheckedSideEffectImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+
+    // Modules
     "module": "es2022",
     "moduleDetection": "force",
     "moduleResolution": "bundler",
-    "verbatimModuleSyntax": true,
     "resolveJsonModule": true,
-
-    // Strictness
-    "strict": true,
-    "exactOptionalPropertyTypes": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noUncheckedIndexedAccess": true,
-
-    // Safety
-    "noUncheckedSideEffectImports": true,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "allowJs": false,
+    "types": [],
 
     // Emit
-    "target": "es2022",
     "noEmitOnError": true,
-    "lib": ["ES2022"],
+
+    // JavaScript Support
+    "allowJs": false,
+
+    // Interop Constraints
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
     "erasableSyntaxOnly": true,
-    "skipLibCheck": true,
-    "useDefineForClassFields": true
+
+    // Language and Environment
+    "target": "es2022",
+    "lib": ["ES2022"],
+    "useDefineForClassFields": true,
+
+    // Completeness
+    "skipLibCheck": true
   }
 }
