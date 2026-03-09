@@ -2,12 +2,10 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "./tsconfig.lib-dev.json",
   "compilerOptions": {
-    // Source Maps
+    // Emit
     "sourceMap": false,
     "declarationMap": false,
     "inlineSources": false,
-
-    // Output
     "removeComments": true,
     "stripInternal": true
   }

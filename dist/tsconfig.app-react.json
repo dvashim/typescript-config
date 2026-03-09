@@ -2,17 +2,15 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    // Module
+    // Modules
     "module": "esnext",
     "allowImportingTsExtensions": true,
 
-    // JSX
-    "jsx": "react-jsx",
-
-    // Environment
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-
     // Emit
-    "noEmit": true
+    "noEmit": true,
+
+    // Language and Environment
+    "jsx": "react-jsx",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"]
   }
 }

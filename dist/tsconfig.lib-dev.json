@@ -2,13 +2,13 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    // Declarations
+    // Emit
     "declaration": true,
-    "composite": true,
     "declarationMap": true,
-
-    // Source Maps
     "sourceMap": true,
-    "removeComments": false
+    "removeComments": false,
+
+    // Projects
+    "composite": true
   }
 }
