@@ -2,34 +2,19 @@
   "name": "@dvashim/typescript-config",
   "version": "1.1.12",
   "description": "Shared TypeScript configurations",
-  "type": "module",
-  "scripts": {
-    "check:format": "biome format .",
-    "check:exports": "validate-package-exports --check",
-    "check:ts": "for f in ./tests/*.json; do tsc -p \"$f\" || exit 1; done",
-    "check": "pnpm run \"/^check:.*/\"",
-    "changeset": "changeset"
-  },
   "keywords": [
-    "typescript",
-    "config"
+    "config",
+    "shared-config",
+    "tsconfig",
+    "typescript"
   ],
-  "author": {
-    "name": "Aleksei Reznichenko",
-    "email": "aleksei@dvashim.dev"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dvashim/typescript-config.git"
   },
   "license": "MIT",
-  "packageManager": "pnpm@10.28.1",
-  "devDependencies": {
-    "@biomejs/biome": "^2.4.6",
-    "@changesets/changelog-github": "^0.6.0",
-    "@changesets/cli": "^2.30.0",
-    "@dvashim/biome-config": "^1.3.2",
-    "@types/node": "^25.3.5",
-    "typescript": "^5.9.3",
-    "validate-package-exports": "^0.19.1",
-    "vite": "^7.3.1"
-  },
+  "author": "Aleksei Reznichenko <aleksei@dvashim.dev>",
+  "type": "module",
   "exports": {
     ".": "./dist/tsconfig.base.json",
     "./base": "./dist/tsconfig.base.json",
@@ -48,10 +33,27 @@
   "files": [
     "dist"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dvashim/typescript-config.git"
+  "scripts": {
+    "changeset": "changeset",
+    "check": "pnpm run \"/^check:.*/\"",
+    "check:exports": "validate-package-exports --check",
+    "check:format": "biome format .",
+    "check:ts": "for f in ./tests/*.json; do tsc -p \"$f\" || exit 1; done"
   },
+  "peerDependencies": {
+    "typescript": ">=6.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.8",
+    "@changesets/changelog-github": "^0.6.0",
+    "@changesets/cli": "^2.30.0",
+    "@dvashim/biome-config": "^1.4.0",
+    "@types/node": "^25.5.0",
+    "typescript": "^6.0.2",
+    "validate-package-exports": "^0.22.0",
+    "vite": "^8.0.2"
+  },
+  "packageManager": "pnpm@10.28.1",
   "publishConfig": {
     "access": "public"
   }
