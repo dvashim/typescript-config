@@ -2,14 +2,12 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     // Type Checking
-    "strict": true,
     "exactOptionalPropertyTypes": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
-    "noUncheckedSideEffectImports": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "allowUnreachableCode": false,
@@ -18,26 +16,20 @@
     // Modules
     "module": "es2022",
     "moduleDetection": "force",
-    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "types": [],
 
     // Emit
     "noEmitOnError": true,
 
-    // JavaScript Support
-    "allowJs": false,
-
     // Interop Constraints
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
-    "forceConsistentCasingInFileNames": true,
     "erasableSyntaxOnly": true,
 
     // Language and Environment
-    "target": "es2022",
-    "lib": ["ES2022"],
-    "useDefineForClassFields": true,
+    "target": "es2024",
+    "lib": ["ES2024"],
 
     // Completeness
     "skipLibCheck": true

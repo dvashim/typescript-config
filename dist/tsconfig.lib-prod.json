@@ -5,7 +5,6 @@
     // Emit
     "sourceMap": false,
     "declarationMap": false,
-    "inlineSources": false,
     "removeComments": true,
     "stripInternal": true
   }
