@@ -3,7 +3,7 @@
   "extends": "../dist/tsconfig.lib-prod.json",
   "include": ["src"],
   "compilerOptions": {
-    "tsBuildInfoFile": ".tsbuildinfo/tsconfig.lib-prod.tsbuildinfo",
+    "composite": false,
     "noEmit": true
   }
 }
