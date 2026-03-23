@@ -3,7 +3,7 @@
   "extends": "../dist/tsconfig.lib-dev.json",
   "include": ["src"],
   "compilerOptions": {
-    "tsBuildInfoFile": ".tsbuildinfo/tsconfig.lib-dev.tsbuildinfo",
+    "composite": false,
     "noEmit": true
   }
 }

@@ -6,7 +6,12 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "removeComments": false,
+
+    // Modules
+    "types": [],
+
+    // Interop Constraints
+    "isolatedDeclarations": true,
 
     // Projects
     "composite": true

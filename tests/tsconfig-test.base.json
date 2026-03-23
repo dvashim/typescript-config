@@ -3,7 +3,6 @@
   "extends": "../dist/tsconfig.base.json",
   "include": ["src"],
   "compilerOptions": {
-    "tsBuildInfoFile": ".tsbuildinfo/tsconfig.base.tsbuildinfo",
     "noEmit": true
   }
 }
