@@ -4,30 +4,33 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is `@dvashim/typescript-config` — a published npm package providing shared TypeScript configurations (`tsconfig.json` presets). It contains no TypeScript source code to compile; the output is a set of JSON config files in `dist/`.
+This is `@dvashim/typescript-config` — a published npm package providing shared TypeScript configurations (`tsconfig.json` presets). It contains no TypeScript source code to compile; the output is a set of JSON config files in `dist/`. Requires **TypeScript >= 6** (declared as `peerDependencies`) — configs rely on TS 6 defaults (`strict`, `moduleResolution: "bundler"`, `noUncheckedSideEffectImports`, `forceConsistentCasingInFileNames`, `useDefineForClassFields` all defaulting to `true`).
 
 ## Commands
 
 - `pnpm run check` — runs all checks (format + exports + TypeScript validation)
-- `pnpm run check:format` — checks formatting via Biome (extends `@dvashim/biome-config`)
+- `pnpm run check:format` — checks formatting via Biome (extends `@dvashim/biome-config`); covers `dist/` JSON files too
 - `pnpm run check:exports` — validates package exports with `validate-package-exports`
 - `pnpm run check:ts` — type-checks each `tests/*.json` config against `tests/src/test.ts`
+- `tsc -p tests/tsconfig-test.<variant>.json` — type-check a single config variant (e.g., `tsc -p tests/tsconfig-test.node.json`)
 - `pnpm run changeset` — create a changeset for versioning
 
-Package manager: **pnpm** (v10.28.1, specified via `packageManager` field).
+Package manager: **pnpm** (v10.28.1, specified via `packageManager` field). Node.js 24 (per `.node-version`).
 
 ## Architecture
 
 ### Config hierarchy (all in `dist/`)
 
-```
-tsconfig.base.json          ← foundation: strict es2022 + ESM + bundler resolution
-├── tsconfig.node.json      ← esnext module, es2023 target, node types, noEmit
-├── tsconfig.lib-dev.json   ← declaration + composite + sourceMaps
+```text
+tsconfig.base.json          ← foundation: strict es2024 + ESM + bundler resolution
+├── tsconfig.node.json      ← esnext module, node types, noEmit
+├── tsconfig.lib-dev.json   ← declaration + composite + sourceMaps + isolatedDeclarations
 │   └── tsconfig.lib-prod.json  ← strips sourceMaps/comments, stripInternal
 └── tsconfig.app-react.json ← esnext module, DOM libs, react-jsx, noEmit
     └── tsconfig.app-react-vite.json  ← adds vite/client types
 ```
+
+Base uses `types: []` to block ambient `@types/*` auto-discovery; leaf configs explicitly set their own `types` (e.g., `["node"]`, `["vite/client"]`, or `[]`).
 
 ### Package exports mapping
 
