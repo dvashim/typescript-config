@@ -1,5 +1,18 @@
 # @dvashim/typescript-config
 
+## 2.0.1
+
+### Patch Changes
+
+- [#35](https://github.com/dvashim/typescript-config/pull/35) [`e2fea03`](https://github.com/dvashim/typescript-config/commit/e2fea0340bb72b5dcb997ced48a94ab9914c0c55) Thanks [@aleksei-reznichenko](https://github.com/aleksei-reznichenko)! - Bump devDependencies and update CI workflows
+
+  - **@biomejs/biome:** ^2.4.8 → ^2.4.9
+  - **@dvashim/biome-config:** ^1.4.0 → ^1.5.1
+  - **validate-package-exports:** ^0.22.0 → ^0.23.0
+  - **vite:** ^8.0.2 → ^8.0.3
+  - **CI:** Bump pnpm/action-setup to v5 for Node 24 compatibility
+  - **CI:** Run checks on push to non-main branches instead of main
+
 ## 2.0.0
 
 ### Major Changes
