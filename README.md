@@ -20,14 +20,14 @@ pnpm add -D @dvashim/typescript-config
 
 ## Configurations
 
-| Name | Path |
-|------|------|
-| Base | `@dvashim/typescript-config` or `@dvashim/typescript-config/base` |
-| Library development | `@dvashim/typescript-config/lib/dev` or `@dvashim/typescript-config/lib-dev` |
-| Library production | `@dvashim/typescript-config/lib/prod` or `@dvashim/typescript-config/lib-prod` |
-| React JSX application | `@dvashim/typescript-config/app/react` or `@dvashim/typescript-config/app-react` |
-| Vite + React JSX application | `@dvashim/typescript-config/app/react/vite` or `@dvashim/typescript-config/app-react-vite` |
-| Node | `@dvashim/typescript-config/node` |
+| Name | Path | Alias |
+|------|------|-------|
+| Base | `@dvashim/typescript-config` or `@dvashim/typescript-config/base` | — |
+| Library development | `@dvashim/typescript-config/lib/dev` or `@dvashim/typescript-config/lib-dev` | `@dvashim/typescript-config/lib` |
+| Library production | `@dvashim/typescript-config/lib/prod` or `@dvashim/typescript-config/lib-prod` | — |
+| React JSX application | `@dvashim/typescript-config/app/react` or `@dvashim/typescript-config/app-react` | `@dvashim/typescript-config/app` |
+| Vite + React JSX application | `@dvashim/typescript-config/app/react/vite` or `@dvashim/typescript-config/app-react-vite` | — |
+| Node | `@dvashim/typescript-config/node` | — |
 
 ## Use
 
