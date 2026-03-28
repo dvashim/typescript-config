@@ -1,5 +1,11 @@
 # @dvashim/typescript-config
 
+## 2.0.2
+
+### Patch Changes
+
+- [#38](https://github.com/dvashim/typescript-config/pull/38) [`16f317e`](https://github.com/dvashim/typescript-config/commit/16f317e98eaec814f65a94564fe5e8ea8b42b386) Thanks [@aleksei-reznichenko](https://github.com/aleksei-reznichenko)! - Add short aliases to configurations table in README
+
 ## 2.0.1
 
 ### Patch Changes
