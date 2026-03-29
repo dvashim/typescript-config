@@ -1,6 +1,23 @@
 # TypeScript Configurations
 
-[![npm version](https://img.shields.io/npm/v/@dvashim/typescript-config.svg?label=@dvashim/typescript-config&logo=npm&style=flat-square&color2=07c)](https://www.npmjs.com/package/@dvashim/typescript-config) [![npm downloads](https://img.shields.io/npm/dm/@dvashim/typescript-config?logo=npm&style=flat-square&color=07c)](https://www.npmjs.com/package/@dvashim/typescript-config) [![Checked with Biome](https://img.shields.io/badge/Checked_with-Biome-60a5fa?style=flat-square&logo=biome&color=07c&logoColor=fff)](https://biomejs.dev)
+[![CI][ci-badge]][ci-link]
+[![npm version][npm-badge]][npm-link]
+[![npm downloads][downloads-badge]][npm-link]
+[![License: MIT][license-badge]][license-link]
+[![TypeScript][ts-badge]][ts-link]
+[![Checked with Biome][biome-badge]][biome-link]
+
+[ci-badge]: https://img.shields.io/github/actions/workflow/status/dvashim/typescript-config/check.yml?style=flat-square&logo=github&label=CI
+[ci-link]: https://github.com/dvashim/typescript-config/actions/workflows/check.yml
+[npm-badge]: https://img.shields.io/npm/v/@dvashim/typescript-config?label=@dvashim/typescript-config&logo=npm&style=flat-square&color=07c
+[downloads-badge]: https://img.shields.io/npm/dm/@dvashim/typescript-config?logo=npm&style=flat-square&color=07c
+[npm-link]: https://www.npmjs.com/package/@dvashim/typescript-config
+[license-badge]: https://img.shields.io/npm/l/@dvashim/typescript-config?style=flat-square&color=07c
+[license-link]: https://github.com/dvashim/typescript-config/blob/main/LICENSE
+[ts-badge]: https://img.shields.io/badge/TypeScript-%3E%3D_6-07c?style=flat-square&logo=typescript&logoColor=fff
+[ts-link]: https://www.typescriptlang.org/
+[biome-badge]: https://img.shields.io/badge/Checked_with-Biome-07c?style=flat-square&logo=biome&logoColor=fff
+[biome-link]: https://biomejs.dev
 
 Requires **TypeScript >= 6**.
 
@@ -21,7 +38,7 @@ pnpm add -D @dvashim/typescript-config
 ## Configurations
 
 | Name | Path | Alias |
-|------|------|-------|
+| ---- | ---- | ----- |
 | Base | `@dvashim/typescript-config` or `@dvashim/typescript-config/base` | — |
 | Library development | `@dvashim/typescript-config/lib/dev` or `@dvashim/typescript-config/lib-dev` | `@dvashim/typescript-config/lib` |
 | Library production | `@dvashim/typescript-config/lib/prod` or `@dvashim/typescript-config/lib-prod` | — |
