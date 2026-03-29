@@ -1,5 +1,11 @@
 # @dvashim/typescript-config
 
+## 2.0.4
+
+### Patch Changes
+
+- [#43](https://github.com/dvashim/typescript-config/pull/43) [`4b4bf09`](https://github.com/dvashim/typescript-config/commit/4b4bf099e3d42c687ae630bdc7c6c57ab33dd348) Thanks [@aleksei-reznichenko](https://github.com/aleksei-reznichenko)! - Fix release workflow skip condition that prevented npm publishing on changeset version PR merge
+
 ## 2.0.3
 
 ### Patch Changes
