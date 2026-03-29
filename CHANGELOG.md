@@ -1,5 +1,14 @@
 # @dvashim/typescript-config
 
+## 2.0.3
+
+### Patch Changes
+
+- [#41](https://github.com/dvashim/typescript-config/pull/41) [`e65964b`](https://github.com/dvashim/typescript-config/commit/e65964b9c8d370852e22bed25d665c9e062e1b93) Thanks [@aleksei-reznichenko](https://github.com/aleksei-reznichenko)! - Update README badges and bump biome-config
+
+  - **Docs:** Refactor README badges to reference-style links and add CI, license, and TypeScript badges
+  - **Build:** Bump @dvashim/biome-config to ^1.5.6
+
 ## 2.0.2
 
 ### Patch Changes
