@@ -1,5 +1,11 @@
 # @dvashim/typescript-config
 
+## 2.0.5
+
+### Patch Changes
+
+- [#45](https://github.com/dvashim/typescript-config/pull/45) [`62f999d`](https://github.com/dvashim/typescript-config/commit/62f999ded6e545036f9ac1d90a2083976d49218b) Thanks [@aleksei-reznichenko](https://github.com/aleksei-reznichenko)! - Update dev dependencies: `@biomejs/biome` to ^2.4.10 and `@dvashim/biome-config` to ^1.5.9
+
 ## 2.0.4
 
 ### Patch Changes
