@@ -1,5 +1,15 @@
 # @dvashim/typescript-config
 
+## 3.0.0
+
+### Major Changes
+
+- [#49](https://github.com/dvashim/typescript-config/pull/49) [`34b6769`](https://github.com/dvashim/typescript-config/commit/34b6769d87afb2002ec8e48736f0fbcc2354eb32) Thanks [@aleksei-reznichenko](https://github.com/aleksei-reznichenko)! - Remove duplicate and alias package exports, rewrite README
+
+  - **Breaking:** Remove folder-style (`./lib/dev`, `./app/react/vite`) and short alias (`./base`, `./lib`, `./app`) exports — use dash-separated paths (`./lib-dev`, `./app-react-vite`) instead
+  - **Docs:** Add package description, convert option lists to tables, add Socket.dev badge
+  - **Build:** Bump `@dvashim/biome-config` and `@types/node`, simplify `biome.json`
+
 ## 2.0.5
 
 ### Patch Changes
