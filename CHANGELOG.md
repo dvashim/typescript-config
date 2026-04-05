@@ -1,5 +1,11 @@
 # @dvashim/typescript-config
 
+## 3.0.1
+
+### Patch Changes
+
+- [#51](https://github.com/dvashim/typescript-config/pull/51) [`6e8fb2d`](https://github.com/dvashim/typescript-config/commit/6e8fb2d8cdb55149eeafefcdd31b18c162a89ac6) Thanks [@aleksei-reznichenko](https://github.com/aleksei-reznichenko)! - Remove flat-square style override from README badges to use default rendering
+
 ## 3.0.0
 
 ### Major Changes
