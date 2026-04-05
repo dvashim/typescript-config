@@ -8,18 +8,18 @@
 [![Checked with Biome][biome-badge]][biome-link]
 [![Socket][socket-badge]][socket-link]
 
-[ci-badge]: https://img.shields.io/github/actions/workflow/status/dvashim/typescript-config/check.yml?style=flat-square&logo=github&label=CI
+[ci-badge]: https://img.shields.io/github/actions/workflow/status/dvashim/typescript-config/check.yml?logo=github&label=CI
 [ci-link]: https://github.com/dvashim/typescript-config/actions/workflows/check.yml
-[npm-badge]: https://img.shields.io/npm/v/@dvashim/typescript-config?label=@dvashim/typescript-config&logo=npm&style=flat-square&color=07c
-[downloads-badge]: https://img.shields.io/npm/dm/@dvashim/typescript-config?logo=npm&style=flat-square&color=07c
+[npm-badge]: https://img.shields.io/npm/v/@dvashim/typescript-config?label=@dvashim/typescript-config&logo=npm&color=07c
+[downloads-badge]: https://img.shields.io/npm/dm/@dvashim/typescript-config?logo=npm&color=07c
 [npm-link]: https://www.npmjs.com/package/@dvashim/typescript-config
-[license-badge]: https://img.shields.io/npm/l/@dvashim/typescript-config?style=flat-square&color=07c
+[license-badge]: https://img.shields.io/npm/l/@dvashim/typescript-config?color=07c
 [license-link]: https://github.com/dvashim/typescript-config/blob/main/LICENSE
-[ts-badge]: https://img.shields.io/badge/TypeScript-%3E%3D_6-07c?style=flat-square&logo=typescript&logoColor=fff
+[ts-badge]: https://img.shields.io/badge/TypeScript-%3E%3D_6-07c?logo=typescript&logoColor=fff
 [ts-link]: https://www.typescriptlang.org/
-[biome-badge]: https://img.shields.io/badge/Checked_with-Biome-07c?style=flat-square&logo=biome&logoColor=fff
+[biome-badge]: https://img.shields.io/badge/Checked_with-Biome-07c?logo=biome&logoColor=fff
 [biome-link]: https://biomejs.dev
-[socket-badge]: https://socket.dev/api/badge/npm/package/@dvashim/typescript-config?style=flat-square
+[socket-badge]: https://socket.dev/api/badge/npm/package/@dvashim/typescript-config
 [socket-link]: https://socket.dev/npm/package/@dvashim/typescript-config
 
 Shareable `tsconfig.json` presets for libraries, React applications, and Node.js tooling — strict ES2024 + ESM defaults with bundler module resolution.
