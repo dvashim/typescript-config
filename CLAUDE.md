@@ -35,7 +35,7 @@ Base uses `types: []` to block ambient `@types/*` auto-discovery; leaf configs e
 
 ### Package exports mapping
 
-Configs are exposed via `exports` in `package.json` with both nested and flat path styles (e.g., `./lib/dev` and `./lib-dev` both resolve to the same config). Short aliases `./lib` → lib-dev, `./app` → app-react are also provided.
+Configs are exposed via `exports` in `package.json` using dash-separated paths (e.g., `./lib-dev`, `./app-react-vite`).
 
 ### Testing
 

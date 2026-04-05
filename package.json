@@ -17,16 +17,9 @@
   "type": "module",
   "exports": {
     ".": "./dist/tsconfig.base.json",
-    "./base": "./dist/tsconfig.base.json",
     "./node": "./dist/tsconfig.node.json",
-    "./lib": "./dist/tsconfig.lib-dev.json",
-    "./lib/dev": "./dist/tsconfig.lib-dev.json",
-    "./lib/prod": "./dist/tsconfig.lib-prod.json",
     "./lib-dev": "./dist/tsconfig.lib-dev.json",
     "./lib-prod": "./dist/tsconfig.lib-prod.json",
-    "./app": "./dist/tsconfig.app-react.json",
-    "./app/react": "./dist/tsconfig.app-react.json",
-    "./app/react/vite": "./dist/tsconfig.app-react-vite.json",
     "./app-react": "./dist/tsconfig.app-react.json",
     "./app-react-vite": "./dist/tsconfig.app-react-vite.json"
   },
