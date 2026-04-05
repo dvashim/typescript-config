@@ -6,6 +6,7 @@
 [![License: MIT][license-badge]][license-link]
 [![TypeScript][ts-badge]][ts-link]
 [![Checked with Biome][biome-badge]][biome-link]
+[![Socket][socket-badge]][socket-link]
 
 [ci-badge]: https://img.shields.io/github/actions/workflow/status/dvashim/typescript-config/check.yml?style=flat-square&logo=github&label=CI
 [ci-link]: https://github.com/dvashim/typescript-config/actions/workflows/check.yml
@@ -18,6 +19,8 @@
 [ts-link]: https://www.typescriptlang.org/
 [biome-badge]: https://img.shields.io/badge/Checked_with-Biome-07c?style=flat-square&logo=biome&logoColor=fff
 [biome-link]: https://biomejs.dev
+[socket-badge]: https://socket.dev/api/badge/npm/package/@dvashim/typescript-config?style=flat-square
+[socket-link]: https://socket.dev/npm/package/@dvashim/typescript-config
 
 Shareable `tsconfig.json` presets for libraries, React applications, and Node.js tooling — strict ES2024 + ESM defaults with bundler module resolution.
 
