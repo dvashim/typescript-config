@@ -10,8 +10,9 @@ This is `@dvashim/typescript-config` — a published npm package providing share
 
 - `pnpm run check` — runs all checks (format + exports + TypeScript validation)
 - `pnpm run check:format` — checks formatting via Biome (extends `@dvashim/biome-config`); covers `dist/` JSON files too
+- `pnpm biome format --write .` — auto-fix formatting
 - `pnpm run check:exports` — validates package exports with `validate-package-exports`
-- `pnpm run check:ts` — type-checks each `tests/*.json` config against `tests/src/test.ts`
+- `pnpm run check:ts` — type-checks each `tests/*.json` config against `tests/src/test.ts` (fails fast on first error)
 - `tsc -p tests/tsconfig-test.<variant>.json` — type-check a single config variant (e.g., `tsc -p tests/tsconfig-test.node.json`)
 - `pnpm run changeset` — create a changeset for versioning
 
@@ -34,7 +35,7 @@ Base uses `types: []` to block ambient `@types/*` auto-discovery; leaf configs e
 
 ### Package exports mapping
 
-Configs are exposed via `exports` in `package.json` with both nested and flat path styles (e.g., `./lib/dev` and `./lib-dev` both resolve to the same config). Short aliases `./lib` → lib-dev, `./app` → app-react are also provided.
+Configs are exposed via `exports` in `package.json` using dash-separated paths (e.g., `./lib-dev`, `./app-react-vite`).
 
 ### Testing
 
@@ -42,7 +43,7 @@ Tests live in `tests/` — one `tsconfig-test.*.json` per config variant. Each e
 
 ### Releases
 
-Uses [Changesets](https://github.com/changesets/changesets) for versioning. The `.changeset/config.json` is configured with `"commit": true` and GitHub changelog. CI runs `check` on push/PR to main; a separate `release.yml` workflow handles publishing.
+Uses [Changesets](https://github.com/changesets/changesets) for versioning. The `.changeset/config.json` is configured with `"commit": true` and GitHub changelog. CI runs `check` on PRs to main; the `release.yml` workflow runs on push to main and handles publishing via `changesets/action`.
 
 ## Editing configs
 
