@@ -1,5 +1,15 @@
 # @dvashim/typescript-config
 
+## 3.1.0
+
+### Minor Changes
+
+- [#53](https://github.com/dvashim/typescript-config/pull/53) [`8d72858`](https://github.com/dvashim/typescript-config/commit/8d72858221b1ee91f34a35aa564ce4cc32b5d404) Thanks [@aleksei-reznichenko](https://github.com/aleksei-reznichenko)! - Bump target/lib from ES2024 to ES2025 and remove redundant `types: []` from lib-dev and app-react configs
+
+  - **Configs:** Update `target` and `lib` to ES2025 in base and app-react configs
+  - **Cleanup:** Remove redundant `types: []` from lib-dev and app-react (inherited from base)
+  - **Deps:** Update `@dvashim/biome-config` and `vite` dev dependencies
+
 ## 3.0.1
 
 ### Patch Changes
