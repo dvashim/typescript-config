@@ -7,9 +7,6 @@
     "declarationMap": true,
     "sourceMap": true,
 
-    // Modules
-    "types": [],
-
     // Interop Constraints
     "isolatedDeclarations": true,
 

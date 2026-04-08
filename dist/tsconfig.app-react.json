@@ -5,13 +5,12 @@
     // Modules
     "module": "esnext",
     "allowImportingTsExtensions": true,
-    "types": [],
 
     // Emit
     "noEmit": true,
 
     // Language and Environment
     "jsx": "react-jsx",
-    "lib": ["ES2024", "DOM", "DOM.Iterable", "DOM.AsyncIterable"]
+    "lib": ["ES2025", "DOM", "DOM.Iterable", "DOM.AsyncIterable"]
   }
 }
