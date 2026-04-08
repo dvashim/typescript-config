@@ -22,7 +22,7 @@
 [socket-badge]: https://socket.dev/api/badge/npm/package/@dvashim/typescript-config
 [socket-link]: https://socket.dev/npm/package/@dvashim/typescript-config
 
-Shareable `tsconfig.json` presets for libraries, React applications, and Node.js tooling — strict ES2024 + ESM defaults with bundler module resolution.
+Shareable `tsconfig.json` presets for libraries, React applications, and Node.js tooling — strict ES2025 + ESM defaults with bundler module resolution.
 
 Requires **TypeScript >= 6**.
 
@@ -58,7 +58,7 @@ Base configuration:
 ```jsonc
 // tsconfig.json (base)
 // ---
-// Strict ES2024 + ESM foundation with bundler resolution.
+// Strict ES2025 + ESM foundation with bundler resolution.
 // Enforces verbatim module syntax, erasable-only syntax,
 // and maximum type safety (strict, exactOptionalPropertyTypes,
 // noUncheckedIndexedAccess, noUnusedLocals, etc.).
@@ -178,8 +178,8 @@ Options listed below are set explicitly. Additional options (`strict`, `moduleRe
 | [`verbatimModuleSyntax`](https://www.typescriptlang.org/tsconfig#verbatimModuleSyntax) | `true` | Preserves import/export syntax as written |
 | [`isolatedModules`](https://www.typescriptlang.org/tsconfig#isolatedModules) | `true` | Each file can be safely transpiled in isolation |
 | [`erasableSyntaxOnly`](https://www.typescriptlang.org/tsconfig#erasableSyntaxOnly) | `true` | No enums, namespaces, or parameter properties |
-| [`target`](https://www.typescriptlang.org/tsconfig#target) | `"es2024"` | ES2024 JavaScript output |
-| [`lib`](https://www.typescriptlang.org/tsconfig#lib) | `["ES2024"]` | ES2024 built-in type declarations |
+| [`target`](https://www.typescriptlang.org/tsconfig#target) | `"es2025"` | ES2025 JavaScript output |
+| [`lib`](https://www.typescriptlang.org/tsconfig#lib) | `["ES2025"]` | ES2025 built-in type declarations |
 | [`skipLibCheck`](https://www.typescriptlang.org/tsconfig#skipLibCheck) | `true` | Skips type checking of `.d.ts` files |
 
 ### Library development
@@ -215,7 +215,7 @@ Extends base for React applications with DOM types and no-emit mode.
 | [`allowImportingTsExtensions`](https://www.typescriptlang.org/tsconfig#allowImportingTsExtensions) | `true` | Allows `.ts`/`.tsx` extension imports |
 | [`noEmit`](https://www.typescriptlang.org/tsconfig#noEmit) | `true` | Bundler handles output |
 | [`jsx`](https://www.typescriptlang.org/tsconfig#jsx) | `"react-jsx"` | Automatic JSX runtime (no `import React` needed) |
-| [`lib`](https://www.typescriptlang.org/tsconfig#lib) | `["ES2024", "DOM", "DOM.Iterable", "DOM.AsyncIterable"]` | ES2024 + DOM + iterable/async iterable DOM APIs |
+| [`lib`](https://www.typescriptlang.org/tsconfig#lib) | `["ES2025", "DOM", "DOM.Iterable", "DOM.AsyncIterable"]` | ES2025 + DOM + iterable/async iterable DOM APIs |
 
 ### Vite + React JSX application
 
