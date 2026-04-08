@@ -1,5 +1,11 @@
 # @dvashim/typescript-config
 
+## 3.1.1
+
+### Patch Changes
+
+- [#55](https://github.com/dvashim/typescript-config/pull/55) [`6047cae`](https://github.com/dvashim/typescript-config/commit/6047caed13b6fd0a22b31a25af85485b1b668d96) Thanks [@aleksei-reznichenko](https://github.com/aleksei-reznichenko)! - Update documentation to reflect ES2025 target and lib values
+
 ## 3.1.0
 
 ### Minor Changes
