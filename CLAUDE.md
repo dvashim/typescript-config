@@ -23,7 +23,7 @@ Package manager: **pnpm** (v10.28.1, specified via `packageManager` field). Node
 ### Config hierarchy (all in `dist/`)
 
 ```text
-tsconfig.base.json          ← foundation: strict es2024 + ESM + bundler resolution
+tsconfig.base.json          ← foundation: strict es2025 + ESM + bundler resolution
 ├── tsconfig.node.json      ← esnext module, node types, noEmit
 ├── tsconfig.lib-dev.json   ← declaration + composite + sourceMaps + isolatedDeclarations
 │   └── tsconfig.lib-prod.json  ← strips sourceMaps/comments, stripInternal
