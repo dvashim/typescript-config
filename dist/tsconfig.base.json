@@ -28,8 +28,8 @@
     "erasableSyntaxOnly": true,
 
     // Language and Environment
-    "target": "es2024",
-    "lib": ["ES2024"],
+    "target": "es2025",
+    "lib": ["ES2025"],
 
     // Completeness
     "skipLibCheck": true
