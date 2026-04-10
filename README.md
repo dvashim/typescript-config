@@ -24,7 +24,19 @@
 
 Shareable `tsconfig.json` presets for libraries, React applications, and Node.js tooling — strict ES2025 + ESM defaults with bundler module resolution.
 
-Requires **TypeScript >= 6**.
+## Contents
+
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Configurations](#configurations)
+- [Usage](#usage)
+- [Options](#options)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Requirements
+
+- [TypeScript](https://www.typescriptlang.org/) `>=6.0.0`
 
 ## Installation
 
@@ -51,7 +63,7 @@ pnpm add -D @dvashim/typescript-config
 | Vite + React JSX application | `@dvashim/typescript-config/app-react-vite` |
 | Node | `@dvashim/typescript-config/node` |
 
-## Use
+## Usage
 
 Base configuration:
 
@@ -235,3 +247,13 @@ Extends base for Node.js tooling files (build configs, scripts) processed by bun
 | [`allowImportingTsExtensions`](https://www.typescriptlang.org/tsconfig#allowImportingTsExtensions) | `true` | Allows `.ts` extension imports |
 | [`types`](https://www.typescriptlang.org/tsconfig#types) | `["node"]` | Node.js global and built-in module types |
 | [`noEmit`](https://www.typescriptlang.org/tsconfig#noEmit) | `true` | Bundler handles output |
+
+## Contributing
+
+Issues and pull requests are welcome at [dvashim/typescript-config](https://github.com/dvashim/typescript-config).
+
+This project uses [Changesets](https://github.com/changesets/changesets) for versioning — run `pnpm run changeset` alongside your change to describe it. See the [CHANGELOG](./CHANGELOG.md) for release history.
+
+## License
+
+[MIT](./LICENSE) © Aleksei Reznichenko
