@@ -1,5 +1,11 @@
 # @dvashim/typescript-config
 
+## 3.1.3
+
+### Patch Changes
+
+- [#61](https://github.com/dvashim/typescript-config/pull/61) [`a8c0253`](https://github.com/dvashim/typescript-config/commit/a8c0253087c532b6933534fc961a3af03d3e0b2a) Thanks [@aleksei-reznichenko](https://github.com/aleksei-reznichenko)! - Bump devDependencies
+
 ## 3.1.2
 
 ### Patch Changes
