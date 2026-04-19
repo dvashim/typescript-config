@@ -1,5 +1,15 @@
 # @dvashim/typescript-config
 
+## 4.0.0
+
+### Major Changes
+
+- [#65](https://github.com/dvashim/typescript-config/pull/65) [`0053433`](https://github.com/dvashim/typescript-config/commit/00534335e72ba67df68c60cf284a541d2c69a9ca) Thanks [@aleksei-reznichenko](https://github.com/aleksei-reznichenko)! - Align module settings with TypeScript 6 defaults, and enable `.ts` import rewriting in `lib-dev`.
+
+  - `tsconfig.base.json`: remove explicit `module: "es2022"`. TypeScript 6 now applies `module: "esnext"` by default, so library emit shifts from ES2022 to ESNext module syntax.
+  - `tsconfig.node.json` and `tsconfig.app-react.json`: drop now-redundant `module: "esnext"` overrides (inherited from the TS 6 default).
+  - `tsconfig.lib-dev.json`: add `allowImportingTsExtensions: true` and `rewriteRelativeImportExtensions: true` so library sources can use `.ts`/`.tsx` import specifiers that are rewritten to `.js`/`.jsx` on emit (TypeScript 5.7+).
+
 ## 3.1.3
 
 ### Patch Changes
