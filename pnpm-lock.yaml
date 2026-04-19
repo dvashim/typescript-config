@@ -15,7 +15,7 @@ importers:
         specifier: ^0.6.0
         version: 0.6.0(encoding@0.1.13)
       '@changesets/cli':
-        specifier: ^2.30.0
+        specifier: ^2.31.0
         version: 2.31.0(@types/node@25.6.0)
       '@dvashim/biome-config':
         specifier: ^1.6.0
@@ -24,7 +24,7 @@ importers:
         specifier: ^25.6.0
         version: 25.6.0
       typescript:
-        specifier: ^6.0.2
+        specifier: ^6.0.3
         version: 6.0.3
       validate-package-exports:
         specifier: ^0.23.0

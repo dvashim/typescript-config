@@ -89,7 +89,8 @@ Library development configuration:
 // ---
 // Extends base for library development.
 // Enables .d.ts declarations, composite builds,
-// source maps, declaration maps, and isolated declarations.
+// source maps, declaration maps, isolated declarations,
+// and .ts/.tsx → .js/.jsx import rewriting on emit.
 
 {
   "$schema": "https://json.schemastore.org/tsconfig",
@@ -121,8 +122,7 @@ React JSX application configuration:
 // ---
 // Extends base for React applications.
 // Adds DOM + DOM.Iterable + DOM.AsyncIterable libs,
-// automatic JSX runtime, esnext modules, and
-// .ts/.tsx extension imports.
+// automatic JSX runtime, and .ts/.tsx extension imports.
 // No emit — bundler handles output.
 
 {
@@ -153,8 +153,8 @@ Node configuration:
 // tsconfig.json (node)
 // ---
 // Extends base for Node.js tooling files
-// (build configs, scripts). @types/node,
-// esnext modules, and .ts extension imports.
+// (build configs, scripts). @types/node
+// and .ts extension imports.
 // No emit — bundler handles output.
 
 {
@@ -168,7 +168,7 @@ Node configuration:
 
 ### Base
 
-Options listed below are set explicitly. Additional options (`strict`, `moduleResolution: "bundler"`, `noUncheckedSideEffectImports`, `forceConsistentCasingInFileNames`, `useDefineForClassFields`, `esModuleInterop`) rely on TypeScript 6 defaults.
+Options listed below are set explicitly. Additional options (`strict`, `module: "esnext"`, `moduleResolution: "bundler"`, `noUncheckedSideEffectImports`, `forceConsistentCasingInFileNames`, `useDefineForClassFields`, `esModuleInterop`) rely on TypeScript 6 defaults.
 
 | Option | Value | Effect |
 | ------ | ----- | ------ |
@@ -182,7 +182,6 @@ Options listed below are set explicitly. Additional options (`strict`, `moduleRe
 | [`noUnusedParameters`](https://www.typescriptlang.org/tsconfig#noUnusedParameters) | `true` | Errors on unused function parameters |
 | [`allowUnreachableCode`](https://www.typescriptlang.org/tsconfig#allowUnreachableCode) | `false` | Errors on unreachable code |
 | [`allowUnusedLabels`](https://www.typescriptlang.org/tsconfig#allowUnusedLabels) | `false` | Errors on unused labels |
-| [`module`](https://www.typescriptlang.org/tsconfig#module) | `"es2022"` | ES2022 module code generation |
 | [`moduleDetection`](https://www.typescriptlang.org/tsconfig#moduleDetection) | `"force"` | All files treated as ES modules |
 | [`resolveJsonModule`](https://www.typescriptlang.org/tsconfig#resolveJsonModule) | `true` | Allows importing `.json` files as typed modules |
 | [`types`](https://www.typescriptlang.org/tsconfig#types) | `[]` | Blocks ambient `@types/*` auto-discovery |
@@ -200,6 +199,8 @@ Extends base with emit settings for `.d.ts` generation and incremental builds.
 
 | Option | Value | Effect |
 | ------ | ----- | ------ |
+| [`allowImportingTsExtensions`](https://www.typescriptlang.org/tsconfig#allowImportingTsExtensions) | `true` | Allows `.ts`/`.tsx` extension imports in source |
+| [`rewriteRelativeImportExtensions`](https://www.typescriptlang.org/tsconfig#rewriteRelativeImportExtensions) | `true` | Rewrites `.ts`/`.tsx` import extensions to `.js`/`.jsx` on emit |
 | [`declaration`](https://www.typescriptlang.org/tsconfig#declaration) | `true` | Emits `.d.ts` type declaration files |
 | [`declarationMap`](https://www.typescriptlang.org/tsconfig#declarationMap) | `true` | Source maps for `.d.ts` ("Go to Definition" navigates to source) |
 | [`sourceMap`](https://www.typescriptlang.org/tsconfig#sourceMap) | `true` | Generates `.js.map` source maps |
@@ -223,7 +224,6 @@ Extends base for React applications with DOM types and no-emit mode.
 
 | Option | Value | Effect |
 | ------ | ----- | ------ |
-| [`module`](https://www.typescriptlang.org/tsconfig#module) | `"esnext"` | Latest module features for bundler consumption |
 | [`allowImportingTsExtensions`](https://www.typescriptlang.org/tsconfig#allowImportingTsExtensions) | `true` | Allows `.ts`/`.tsx` extension imports |
 | [`noEmit`](https://www.typescriptlang.org/tsconfig#noEmit) | `true` | Bundler handles output |
 | [`jsx`](https://www.typescriptlang.org/tsconfig#jsx) | `"react-jsx"` | Automatic JSX runtime (no `import React` needed) |
@@ -243,7 +243,6 @@ Extends base for Node.js tooling files (build configs, scripts) processed by bun
 
 | Option | Value | Effect |
 | ------ | ----- | ------ |
-| [`module`](https://www.typescriptlang.org/tsconfig#module) | `"esnext"` | Latest module features for bundler consumption |
 | [`allowImportingTsExtensions`](https://www.typescriptlang.org/tsconfig#allowImportingTsExtensions) | `true` | Allows `.ts` extension imports |
 | [`types`](https://www.typescriptlang.org/tsconfig#types) | `["node"]` | Node.js global and built-in module types |
 | [`noEmit`](https://www.typescriptlang.org/tsconfig#noEmit) | `true` | Bundler handles output |
