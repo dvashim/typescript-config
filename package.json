@@ -37,14 +37,14 @@
     "typescript": ">=6.0.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.4.12",
+    "@biomejs/biome": "^2.4.13",
     "@changesets/changelog-github": "^0.6.0",
     "@changesets/cli": "^2.31.0",
-    "@dvashim/biome-config": "^1.6.0",
+    "@dvashim/biome-config": "^1.7.0",
     "@types/node": "^25.6.0",
     "typescript": "^6.0.3",
     "validate-package-exports": "^0.23.0",
-    "vite": "^8.0.8"
+    "vite": "^8.0.10"
   },
   "packageManager": "pnpm@10.28.1",
   "publishConfig": {
