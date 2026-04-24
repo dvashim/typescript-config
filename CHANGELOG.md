@@ -1,5 +1,11 @@
 # @dvashim/typescript-config
 
+## 4.0.1
+
+### Patch Changes
+
+- [#67](https://github.com/dvashim/typescript-config/pull/67) [`9ada1a5`](https://github.com/dvashim/typescript-config/commit/9ada1a5efc2524bcf12bb6042c9927a3f04e654c) Thanks [@aleksei-reznichenko](https://github.com/aleksei-reznichenko)! - Bump dev dependencies (@biomejs/biome, @dvashim/biome-config, vite)
+
 ## 4.0.0
 
 ### Major Changes
