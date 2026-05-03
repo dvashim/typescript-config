@@ -1,5 +1,11 @@
 # @dvashim/typescript-config
 
+## 4.0.2
+
+### Patch Changes
+
+- [#73](https://github.com/dvashim/typescript-config/pull/73) [`b400bd1`](https://github.com/dvashim/typescript-config/commit/b400bd111ec1750aaff3ee92989a72f4effe3800) Thanks [@aleksei-reznichenko](https://github.com/aleksei-reznichenko)! - Upgrade development tooling: pnpm to 11.0.4 and @biomejs/biome to 2.4.14.
+
 ## 4.0.1
 
 ### Patch Changes
