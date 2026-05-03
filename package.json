@@ -43,7 +43,7 @@
     "@dvashim/biome-config": "^1.7.0",
     "@types/node": "^25.6.0",
     "typescript": "^6.0.3",
-    "validate-package-exports": "^0.23.0",
+    "validate-package-exports": "^0.24.0",
     "vite": "^8.0.10"
   },
   "packageManager": "pnpm@10.28.1",
