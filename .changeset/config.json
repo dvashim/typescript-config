@@ -2,7 +2,10 @@
   "$schema": "https://unpkg.com/@changesets/config@3.1.2/schema.json",
   "changelog": [
     "@changesets/changelog-github",
-    { "repo": "dvashim/typescript-config" }
+    {
+      "disableThanks": true,
+      "repo": "dvashim/typescript-config"
+    }
   ],
   "commit": true,
   "fixed": [],
