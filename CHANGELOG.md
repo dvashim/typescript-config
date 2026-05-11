@@ -1,5 +1,15 @@
 # @dvashim/typescript-config
 
+## 4.0.3
+
+### Patch Changes
+
+- [#78](https://github.com/dvashim/typescript-config/pull/78) [`a993858`](https://github.com/dvashim/typescript-config/commit/a9938582471b7cbf2486ad247ae7f752c05414e4) - Internal maintenance — no consumer-facing changes.
+
+  - Bump devDependencies (biome, changelog-github, biome-config, types/node, validate-package-exports, vite)
+  - Bump pnpm packageManager to 11.0.9
+  - Disable contributor thanks in GitHub changelog generation
+
 ## 4.0.2
 
 ### Patch Changes
