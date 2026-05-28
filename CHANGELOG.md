@@ -1,5 +1,14 @@
 # @dvashim/typescript-config
 
+## 4.0.4
+
+### Patch Changes
+
+- [#83](https://github.com/dvashim/typescript-config/pull/83) [`01a4e0a`](https://github.com/dvashim/typescript-config/commit/01a4e0af8a33715d1eb257e4b8bc692e6a83ba49) - Improve README and update internal tooling
+
+  - **Docs:** Add a rationale ("Why") section and a "which config?" decision guide, document the TypeScript peer dependency in the install steps, make the `lib-dev`/`lib-prod` examples build-ready with `outDir`/`rootDir`, and correct the Node config description
+  - **Tooling:** Bump devDependencies and the pnpm `packageManager` pin
+
 ## 4.0.3
 
 ### Patch Changes
