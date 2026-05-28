@@ -24,51 +24,84 @@
 
 Shareable `tsconfig.json` presets for libraries, React applications, and Node.js tooling — strict ES2025 + ESM defaults with bundler module resolution.
 
+## Why
+
+These presets encode an opinionated, modern-TypeScript baseline so you don't have to re-derive it per project:
+
+- **Maximum type safety** — full `strict` plus `exactOptionalPropertyTypes`, `noUncheckedIndexedAccess`, `noUnusedLocals`/`noUnusedParameters`, and more.
+- **ESM-only, bundler-first** — ES2025 module output with `moduleResolution: "bundler"`; no downleveling or polyfilling is performed.
+- **Erasable-only syntax** — no enums, namespaces, or parameter properties, so files transpile in isolation and stay portable across `tsc`, esbuild, swc, and Node's native type stripping.
+
+They lean on TypeScript 6 defaults (`strict`, `module: "esnext"`, `moduleResolution: "bundler"`, …) rather than restating them, so the configs stay small and track upstream. Intended for greenfield ES2025 projects that ship or consume ESM on a recent toolchain — not for CommonJS, legacy targets, or projects that need enums/namespaces.
+
 ## Contents
 
+- [Why](#why)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Configurations](#configurations)
 - [Usage](#usage)
 - [Options](#options)
+- [Notes](#notes)
 - [Contributing](#contributing)
 - [License](#license)
 
 ## Requirements
 
-- [TypeScript](https://www.typescriptlang.org/) `>=6.0.0`
+- [TypeScript](https://www.typescriptlang.org/) `>=6.0.0` (declared as a peer dependency)
+- A runtime/toolchain that supports **ES2025** — these presets do not downlevel or polyfill
+- A bundler or a modern Node.js ESM loader — configs use `moduleResolution: "bundler"`
 
 ## Installation
+
+`typescript` is a **peer dependency** (`>=6.0.0`); it is not bundled and won't always be installed automatically (e.g. pnpm without `auto-install-peers`), so install it alongside this package.
 
 npm:
 
 ```bash
-npm install -D @dvashim/typescript-config
+npm install -D @dvashim/typescript-config typescript
 ```
 
 or pnpm:
 
 ```bash
-pnpm add -D @dvashim/typescript-config
+pnpm add -D @dvashim/typescript-config typescript
 ```
 
 ## Configurations
 
-| Name | Path |
-| ---- | ---- |
-| Base | `@dvashim/typescript-config` |
-| Library development | `@dvashim/typescript-config/lib-dev` |
-| Library production | `@dvashim/typescript-config/lib-prod` |
-| React JSX application | `@dvashim/typescript-config/app-react` |
-| Vite + React JSX application | `@dvashim/typescript-config/app-react-vite` |
-| Node | `@dvashim/typescript-config/node` |
+| Name | Import specifier | Use when |
+| ---- | ---------------- | -------- |
+| Base | `@dvashim/typescript-config` | Foundation; extend directly when composing your own preset |
+| Library development | `@dvashim/typescript-config/lib-dev` | Developing a publishable library (emits `.d.ts` + `.js`, composite, source maps) |
+| Library production | `@dvashim/typescript-config/lib-prod` | Release builds (extends `lib-dev`; strips maps, comments, `@internal`) |
+| React JSX application | `@dvashim/typescript-config/app-react` | React app bundled by a non-Vite tool (no emit) |
+| Vite + React JSX application | `@dvashim/typescript-config/app-react-vite` | React app bundled by Vite (extends `app-react`; adds `vite/client` types) |
+| Node | `@dvashim/typescript-config/node` | Node.js tooling/config files, type-checked only |
+
+Not sure which one? Pick the matching `extends`:
+
+```jsonc
+{
+  // Publishing a library? Use lib-dev while developing, lib-prod for release builds:
+  "extends": "@dvashim/typescript-config/lib-dev",
+  // Building a React app bundled by Vite:
+  "extends": "@dvashim/typescript-config/app-react-vite",
+  // Building a React app with another bundler:
+  "extends": "@dvashim/typescript-config/app-react",
+  // Type-checking Node tooling (build scripts, config files):
+  "extends": "@dvashim/typescript-config/node",
+  // Just need the strict ES2025 + ESM base for something else:
+  "extends": "@dvashim/typescript-config"
+}
+```
 
 ## Usage
 
 Base configuration:
 
 ```jsonc
-// tsconfig.json (base)
+// tsconfig.json (Base)
 // ---
 // Strict ES2025 + ESM foundation with bundler resolution.
 // Enforces verbatim module syntax, erasable-only syntax,
@@ -85,7 +118,7 @@ Base configuration:
 Library development configuration:
 
 ```jsonc
-// tsconfig.json (library development)
+// tsconfig.json (Library development)
 // ---
 // Extends base for library development.
 // Enables .d.ts declarations, composite builds,
@@ -95,6 +128,10 @@ Library development configuration:
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@dvashim/typescript-config/lib-dev",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src"
+  },
   "include": ["src"]
 }
 ```
@@ -102,7 +139,7 @@ Library development configuration:
 Library production configuration:
 
 ```jsonc
-// tsconfig.json (library production)
+// tsconfig.json (Library production)
 // ---
 // Extends lib-dev for production builds.
 // Strips source maps, declaration maps, comments,
@@ -111,14 +148,20 @@ Library production configuration:
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@dvashim/typescript-config/lib-prod",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src"
+  },
   "include": ["src"]
 }
 ```
 
+> The `lib-dev` and `lib-prod` presets **emit** declarations and JavaScript and enable `composite: true`. Set `outDir` (and usually `rootDir`) yourself, otherwise output lands next to your sources. Because `composite` is on, build in build mode with `tsc -b` for incremental and project-reference (monorepo) builds and a `.tsbuildinfo` cache.
+
 React JSX application configuration:
 
 ```jsonc
-// tsconfig.json (react jsx application)
+// tsconfig.json (React JSX application)
 // ---
 // Extends base for React applications.
 // Adds DOM + DOM.Iterable + DOM.AsyncIterable libs,
@@ -135,7 +178,7 @@ React JSX application configuration:
 Vite + React JSX application configuration:
 
 ```jsonc
-// tsconfig.json (vite + react jsx application)
+// tsconfig.json (Vite + React JSX application)
 // ---
 // Extends React config with Vite client types
 // (import.meta.env, import.meta.hot, asset imports).
@@ -150,12 +193,13 @@ Vite + React JSX application configuration:
 Node configuration:
 
 ```jsonc
-// tsconfig.json (node)
+// tsconfig.json (Node)
 // ---
 // Extends base for Node.js tooling files
-// (build configs, scripts). @types/node
-// and .ts extension imports.
-// No emit — bundler handles output.
+// (build configs, scripts). Adds @types/node
+// and allows .ts extension imports. Type-checked
+// only (no emit) — run via a bundler or a TS-aware
+// runner (Vite, tsx, esbuild).
 
 {
   "$schema": "https://json.schemastore.org/tsconfig",
@@ -239,13 +283,20 @@ Extends React JSX application with Vite-specific type declarations.
 
 ### Node
 
-Extends base for Node.js tooling files (build configs, scripts) processed by bundlers.
+Extends base for Node.js tooling files (build configs, scripts), **type-checked only** (`noEmit`). Because it keeps the inherited `moduleResolution: "bundler"` and allows `.ts` extension imports, execution is expected via a bundler or a TypeScript-aware runner (Vite, `tsx`, esbuild, swc). It is **not** tuned for Node's native type stripping (`node --experimental-strip-types`), which requires `nodenext`-style resolution and explicit file extensions — use a runner like `tsx`, or compile first, when running these files.
 
 | Option | Value | Effect |
 | ------ | ----- | ------ |
 | [`allowImportingTsExtensions`](https://www.typescriptlang.org/tsconfig#allowImportingTsExtensions) | `true` | Allows `.ts` extension imports |
 | [`types`](https://www.typescriptlang.org/tsconfig#types) | `["node"]` | Node.js global and built-in module types |
-| [`noEmit`](https://www.typescriptlang.org/tsconfig#noEmit) | `true` | Bundler handles output |
+| [`noEmit`](https://www.typescriptlang.org/tsconfig#noEmit) | `true` | Type-checking only; runner/bundler handles execution |
+
+## Notes
+
+- **Ambient types are off by default.** The base sets `types: []` to block `@types/*` auto-discovery. If you rely on global types (e.g. `node`, `vite/client`, `vitest/globals`), add them to `types` in your own config — the `node` and Vite presets already do this for their cases.
+- **Restart the TS server after first install** or after changing `extends`. VS Code and `tsc` resolve the `extends` package specifier from `node_modules`; in VS Code run "TypeScript: Restart TS Server" from the Command Palette.
+- **"Cannot find / read tsconfig.base.json"** usually means the `typescript` peer dependency is not installed. See [Installation](#installation).
+- **Layering configs.** `extends` accepts an array, so you can compose these presets with project-specific overrides, e.g. `"extends": ["@dvashim/typescript-config/node", "./tsconfig.paths.json"]`.
 
 ## Contributing
 
