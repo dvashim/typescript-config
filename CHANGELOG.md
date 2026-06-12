@@ -1,5 +1,11 @@
 # @dvashim/typescript-config
 
+## 4.0.5
+
+### Patch Changes
+
+- [#89](https://github.com/dvashim/typescript-config/pull/89) [`7265a59`](https://github.com/dvashim/typescript-config/commit/7265a59c6c998ea19e6f313b5e3881cdc7d8ab4e) - Update dev dependencies and bump pnpm to 11.6.0
+
 ## 4.0.4
 
 ### Patch Changes
