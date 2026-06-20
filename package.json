@@ -41,7 +41,7 @@
     "@changesets/changelog-github": "^0.7.0",
     "@changesets/cli": "^2.31.0",
     "@dvashim/biome-config": "^1.9.1",
-    "@types/node": "^25.9.3",
+    "@types/node": "^26.0.0",
     "typescript": "^6.0.3",
     "validate-package-exports": "^1.0.1",
     "vite": "^8.0.16"
