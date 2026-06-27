@@ -1,5 +1,14 @@
 # @dvashim/typescript-config
 
+## 4.0.7
+
+### Patch Changes
+
+- [#97](https://github.com/dvashim/typescript-config/pull/97) [`a07d550`](https://github.com/dvashim/typescript-config/commit/a07d550b888b07d64838810b3bb43ebd5b54de72) - Update development dependencies and pin the release CI to a known-good Node version
+
+  - **Deps:** Bump `@biomejs/biome` to ^2.5.1, `@types/node` to ^26.0.1, `validate-package-exports` to ^1.1.0, and `vite` to ^8.1.0
+  - **CI:** Pin the Release job to Node 24.16.0 to avoid the Node 24.17.0 undici regression that breaks `changeset version`
+
 ## 4.0.6
 
 ### Patch Changes
