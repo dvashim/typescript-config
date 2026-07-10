@@ -16,14 +16,12 @@
     // Modules
     "moduleDetection": "force",
     "resolveJsonModule": true,
-    "types": [],
 
     // Emit
     "noEmitOnError": true,
 
     // Interop Constraints
     "verbatimModuleSyntax": true,
-    "isolatedModules": true,
     "erasableSyntaxOnly": true,
 
     // Language and Environment

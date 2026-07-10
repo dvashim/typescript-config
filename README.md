@@ -14,7 +14,7 @@
 [npm-link]: https://www.npmjs.com/package/@dvashim/typescript-config
 [license-badge]: https://img.shields.io/npm/l/@dvashim/typescript-config?color=07c
 [license-link]: https://github.com/dvashim/typescript-config/blob/main/LICENSE
-[ts-badge]: https://img.shields.io/badge/TypeScript-%3E%3D_6-07c?logo=typescript&logoColor=fff
+[ts-badge]: https://img.shields.io/badge/TypeScript-%3E%3D_7-07c?logo=typescript&logoColor=fff
 [ts-link]: https://www.typescriptlang.org/
 [socket-badge]: https://socket.dev/api/badge/npm/package/@dvashim/typescript-config
 [socket-link]: https://socket.dev/npm/package/@dvashim/typescript-config
@@ -70,11 +70,11 @@ These presets encode an opinionated, modern-TypeScript baseline so you don't hav
 - **ESM-only, bundler-first** — ES2025 module output with `moduleResolution: "bundler"`; no downleveling or polyfilling is performed.
 - **Erasable-only syntax** — no enums, namespaces, or parameter properties, so files transpile in isolation and stay portable across `tsc`, esbuild, swc, and Node's native type stripping.
 
-The presets lean on TypeScript 6 defaults rather than restating them — see [Options](#options) for the exact list — so they stay small and track upstream. They are intended for greenfield ES2025 projects that ship or consume ESM on a recent toolchain, not for CommonJS, legacy targets, or projects that need enums or namespaces.
+The presets lean on TypeScript 7 defaults rather than restating them — see [Options](#options) for the exact list — so they stay small and track upstream. They are intended for greenfield ES2025 projects that ship or consume ESM on a recent toolchain, not for CommonJS, legacy targets, or projects that need enums or namespaces.
 
 ## Requirements
 
-- [TypeScript](https://www.typescriptlang.org/) `>=6.0.0`, declared as a peer dependency.
+- [TypeScript](https://www.typescriptlang.org/) `>=7.0.0`, declared as a peer dependency.
 - A runtime that supports **ES2025** — Node.js >= 24 or a current evergreen browser; these presets do not downlevel or polyfill.
 - A bundler or a TypeScript-aware runner — the presets use `moduleResolution: "bundler"`.
 
@@ -84,14 +84,15 @@ Some presets also require a companion package (`@types/node`, `vite`, React's ty
 
 | `@dvashim/typescript-config` | TypeScript |
 | ---------------------------- | ---------- |
-| `>=2.0.0` (current)          | `>=6.0.0`  |
+| `>=5.0.0` (current)          | `>=7.0.0`  |
+| `2.x`–`4.x`                  | `>=6.0.0`  |
 | `1.x`                        | `5.x`      |
 
 Changes that can surface new type errors in consuming projects ship as major versions.
 
 ## Installation
 
-`typescript` is a **peer dependency** (`>=6.0.0`); it is not bundled and won't always be installed automatically (e.g. pnpm without `auto-install-peers`), so install it alongside this package.
+`typescript` is a **peer dependency** (`>=7.0.0`); it is not bundled and won't always be installed automatically (e.g. pnpm without `auto-install-peers`), so install it alongside this package.
 
 npm:
 
@@ -142,7 +143,7 @@ The strict ES2025 + ESM foundation with bundler resolution — maximum type safe
 }
 ```
 
-> The base preset sets neither `noEmit` nor `outDir`, so a plain `tsc` run emits `.js` files next to your sources. Add `"noEmit": true` for check-only setups, or an `outDir` if you want `tsc` output.
+> The base preset sets neither `noEmit` nor `outDir`, so a plain `tsc` run emits `.js` files next to your sources. Add `"noEmit": true` for check-only setups, or an `outDir` with an explicit `rootDir` if you want `tsc` output — TypeScript 7 rejects an `outDir` whose `rootDir` is left implicit when sources sit in a subdirectory (`TS5011`).
 
 ### Library presets: lib-dev and lib-prod
 
@@ -255,14 +256,14 @@ A single project often needs two presets — for example, a Vite app whose `src`
 
 ### Composing presets
 
-- **Ambient types are off by default.** The base preset sets `types: []` to block `@types/*` auto-discovery. If you rely on global types (e.g. `node`, `vite/client`, `vitest/globals`), add them to `types` in your own config — the Node and Vite presets already do this for their cases.
+- **Ambient types are off by default.** TypeScript 7 defaults to `types: []`, so `@types/*` packages are not auto-discovered. If you rely on global types (e.g. `node`, `vite/client`, `vitest/globals`), add them to `types` in your own config — the Node and Vite presets already do this for their cases.
 - **Layering presets.** `extends` accepts an array, so you can compose a preset with project-specific overrides, e.g. `"extends": ["@dvashim/typescript-config/node", "./tsconfig.paths.json"]`.
 
 ## Options
 
 ### Base
 
-Options listed below are set explicitly. Additional options rely on TypeScript 6 defaults rather than being restated: `strict`, `module: "esnext"`, `moduleResolution: "bundler"`, `noUncheckedSideEffectImports`, `forceConsistentCasingInFileNames`, `useDefineForClassFields`, and `esModuleInterop`.
+Options listed below are set explicitly. Additional options rely on TypeScript 7 defaults rather than being restated: `strict`, `module: "esnext"`, `moduleResolution: "bundler"`, `noUncheckedSideEffectImports`, `forceConsistentCasingInFileNames`, `useDefineForClassFields`, `esModuleInterop`, and `types: []` (blocks ambient `@types/*` auto-discovery).
 
 | Option | Value | Effect |
 | ------ | ----- | ------ |
@@ -278,10 +279,8 @@ Options listed below are set explicitly. Additional options rely on TypeScript 6
 | [`allowUnusedLabels`](https://www.typescriptlang.org/tsconfig#allowUnusedLabels) | `false` | Errors on unused labels |
 | [`moduleDetection`](https://www.typescriptlang.org/tsconfig#moduleDetection) | `"force"` | Treats all files as ES modules |
 | [`resolveJsonModule`](https://www.typescriptlang.org/tsconfig#resolveJsonModule) | `true` | Allows importing `.json` files as typed modules |
-| [`types`](https://www.typescriptlang.org/tsconfig#types) | `[]` | Blocks ambient `@types/*` auto-discovery |
 | [`noEmitOnError`](https://www.typescriptlang.org/tsconfig#noEmitOnError) | `true` | Prevents emit when type errors are present |
-| [`verbatimModuleSyntax`](https://www.typescriptlang.org/tsconfig#verbatimModuleSyntax) | `true` | Preserves import/export syntax as written |
-| [`isolatedModules`](https://www.typescriptlang.org/tsconfig#isolatedModules) | `true` | Ensures each file can be transpiled in isolation |
+| [`verbatimModuleSyntax`](https://www.typescriptlang.org/tsconfig#verbatimModuleSyntax) | `true` | Preserves import/export syntax as written; implies [`isolatedModules`](https://www.typescriptlang.org/tsconfig#isolatedModules) |
 | [`erasableSyntaxOnly`](https://www.typescriptlang.org/tsconfig#erasableSyntaxOnly) | `true` | Forbids enums, namespaces, and parameter properties |
 | [`target`](https://www.typescriptlang.org/tsconfig#target) | `"es2025"` | Emits ES2025 JavaScript |
 | [`lib`](https://www.typescriptlang.org/tsconfig#lib) | `["ES2025"]` | Loads ES2025 built-in type declarations |
@@ -347,6 +346,7 @@ Extends base for Node.js tooling files, type-checked only — see [Node preset](
 - **`error TS2688: Cannot find type definition file for 'node'`** — the Node preset loads Node.js types; install `@types/node`.
 - **`error TS2688: Cannot find type definition file for 'vite/client'`** — the Vite preset loads Vite's client types; install `vite` in the same package.
 - **`TS2875`/`TS7026` on JSX tags** — the automatic JSX runtime can't find React's types; install `react` and `@types/react`.
+- **`error TS5011: … The 'rootDir' setting must be explicitly set`** — you added an `outDir` to the base preset without a `rootDir`; set `"rootDir": "./src"` (or your source root) alongside it. The library presets are unaffected (`composite` supplies a `rootDir`).
 - **`tsc` is not found, or the editor falls back to its bundled TypeScript** — the `typescript` peer dependency is not installed; see [Installation](#installation).
 - **Stale errors or missing IntelliSense after install** — restart the TS server after the first install or after changing `extends`: in VS Code, run "TypeScript: Restart TS Server" from the Command Palette.
 
@@ -358,10 +358,10 @@ Development uses [pnpm](https://pnpm.io) (version pinned via the `packageManager
 
 ```bash
 pnpm install
-pnpm run check # format + exports + type-check every preset
+pnpm run check # format + exports + type-check every preset (plus emit smoke tests)
 ```
 
-The JSON presets in `dist/` are the committed source of truth — edit them directly and update the matching test config in `tests/`. This project uses [Changesets](https://github.com/changesets/changesets) for versioning; run `pnpm run changeset` alongside your change to describe it. See the [CHANGELOG](./CHANGELOG.md) for release history.
+The JSON presets in `dist/` are the committed source of truth — edit them directly and update the matching test config in `tests/`. This project uses [Changesets](https://github.com/changesets/changesets) for versioning; run `pnpm run changeset` alongside changes to the presets in `dist/` to describe them (dev-dependency, test, and doc changes don't need one). See the [CHANGELOG](./CHANGELOG.md) for release history.
 
 ## License
 
