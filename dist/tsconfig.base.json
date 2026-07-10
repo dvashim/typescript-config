@@ -16,7 +16,6 @@
     // Modules
     "moduleDetection": "force",
     "resolveJsonModule": true,
-    "types": [],
 
     // Emit
     "noEmitOnError": true,

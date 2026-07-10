@@ -34,7 +34,7 @@
     "check:ts": "for f in ./tests/*.json; do tsc -p \"$f\" || exit 1; done"
   },
   "peerDependencies": {
-    "typescript": ">=6.0.0"
+    "typescript": ">=7.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.3",
