@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "../dist/tsconfig.lib-prod.json",
+  "include": ["src-emit"],
+  "compilerOptions": {
+    "rootDir": "src-emit",
+    "outDir": "out/lib-prod",
+    "tsBuildInfoFile": "out/lib-prod/.tsbuildinfo"
+  }
+}
