@@ -23,7 +23,6 @@
 
     // Interop Constraints
     "verbatimModuleSyntax": true,
-    "isolatedModules": true,
     "erasableSyntaxOnly": true,
 
     // Language and Environment
