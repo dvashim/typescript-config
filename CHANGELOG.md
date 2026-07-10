@@ -1,5 +1,20 @@
 # @dvashim/typescript-config
 
+## 5.0.0
+
+### Major Changes
+
+- [#100](https://github.com/dvashim/typescript-config/pull/100) [`64d96e0`](https://github.com/dvashim/typescript-config/commit/64d96e01822ff725e0293b20c387f92d52776e3b) - Require TypeScript >= 7 (`peerDependencies` is now `>=7.0.0`). Consumers who need to stay on TypeScript 6 should remain on the 4.x line.
+
+  Preset behavior is unchanged on TypeScript 7: type-check results and emitted output were verified identical between TypeScript 6.0.3 and 7.0.2. CI now also tests the latest TypeScript release in the peer range and runs real-emit smoke tests for `lib-dev`/`lib-prod`.
+
+  - `tsconfig.base.json` no longer sets `types: []` — it is the TypeScript 7 default, so ambient `@types/*` auto-discovery stays blocked with no behavior change.
+  - Upgrade note: TypeScript 7 rejects an `outDir` whose `rootDir` is left implicit when sources sit in a subdirectory (`error TS5011`). This can surface when emitting with the base preset; the library presets are unaffected (`composite` supplies a `rootDir`). See the README's Troubleshooting section.
+
+### Patch Changes
+
+- [#100](https://github.com/dvashim/typescript-config/pull/100) [`b0d0eeb`](https://github.com/dvashim/typescript-config/commit/b0d0eeb02552c51f988ae32517c8d06f92c8123d) - Remove redundant `isolatedModules` from `tsconfig.base.json` — it is implied by `verbatimModuleSyntax`, which the base config enables, so behavior is unchanged. Only configs that override `verbatimModuleSyntax: false` are affected: they no longer inherit `isolatedModules` and should set it themselves if still wanted.
+
 ## 4.0.7
 
 ### Patch Changes
