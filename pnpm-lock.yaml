@@ -19,7 +19,7 @@ importers:
         version: 2.31.0(@types/node@26.1.1)
       '@dvashim/biome-config':
         specifier: ^1.10.1
-        version: 1.10.1
+        version: 1.10.2
       '@types/node':
         specifier: ^26.1.1
         version: 26.1.1
@@ -157,8 +157,8 @@ packages:
   '@changesets/write@0.4.0':
     resolution: {integrity: sha512-CdTLvIOPiCNuH71pyDu3rA+Q0n65cmAbXnwWH84rKGiFumFzkmHNT8KHTMEchcxN+Kl8I54xGUhJ7l3E7X396Q==}
 
-  '@dvashim/biome-config@1.10.1':
-    resolution: {integrity: sha512-e+eiQi4aCabcMcPx7k8UaAZwlGUQpsrrUrShsgYQ3UUN0hTRRtN3F0U4lirCj2d7HoX2NjqXAu0GhlObEHzT0g==}
+  '@dvashim/biome-config@1.10.2':
+    resolution: {integrity: sha512-QNxTzqwOzrbbF5OFURXE5F6vBFCh3CiqJU/5eaGcZyuMyxdJ7tx2qsA0EgTC2hg+JdNJZ1CxQhy2MjXSsbgKNA==}
     engines: {node: '>=24'}
 
   '@emnapi/core@1.11.1':
@@ -1544,7 +1544,7 @@ snapshots:
       human-id: 4.2.0
       prettier: 2.8.8
 
-  '@dvashim/biome-config@1.10.1': {}
+  '@dvashim/biome-config@1.10.2': {}
 
   '@emnapi/core@1.11.1':
     dependencies:
