@@ -1,5 +1,15 @@
 # @dvashim/typescript-config
 
+## 5.0.1
+
+### Patch Changes
+
+- [#107](https://github.com/dvashim/typescript-config/pull/107) [`4fb290e`](https://github.com/dvashim/typescript-config/commit/4fb290eac3d574fdb95217dc9206424e4d55f07b) - Internal tooling and dependency maintenance
+
+  - **Tooling:** Replace `validate-package-exports` with `publint` for package exports validation
+  - **Meta:** Normalize `repository.url` to the `git+https://` form
+  - **Deps:** Bump dev dependencies (biome, changesets, biome-config, vite)
+
 ## 5.0.0
 
 ### Major Changes
