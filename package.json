@@ -29,8 +29,8 @@
   "scripts": {
     "changeset": "changeset",
     "check": "pnpm run \"/^check:.*/\"",
-    "check:exports": "publint",
     "check:format": "biome format .",
+    "check:publint": "publint --strict",
     "check:ts": "for f in ./tests/*.json; do tsc -p \"$f\" || exit 1; done"
   },
   "peerDependencies": {
