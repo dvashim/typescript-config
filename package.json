@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/dvashim/typescript-config.git"
+    "url": "git+https://github.com/dvashim/typescript-config.git"
   },
   "license": "MIT",
   "author": "Aleksei Reznichenko <aleksei@dvashim.dev>",
@@ -29,7 +29,7 @@
   "scripts": {
     "changeset": "changeset",
     "check": "pnpm run \"/^check:.*/\"",
-    "check:exports": "validate-package-exports --check",
+    "check:exports": "publint",
     "check:format": "biome format .",
     "check:ts": "for f in ./tests/*.json; do tsc -p \"$f\" || exit 1; done"
   },
@@ -37,16 +37,16 @@
     "typescript": ">=7.0.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.5.3",
+    "@biomejs/biome": "^2.5.4",
     "@changesets/changelog-github": "^0.7.0",
-    "@changesets/cli": "^2.31.0",
-    "@dvashim/biome-config": "^1.10.1",
+    "@changesets/cli": "^2.31.1",
+    "@dvashim/biome-config": "^1.10.2",
     "@types/node": "^26.1.1",
+    "publint": "^0.3.21",
     "typescript": "^7.0.2",
-    "validate-package-exports": "^1.2.1",
-    "vite": "^8.1.4"
+    "vite": "^8.1.5"
   },
-  "packageManager": "pnpm@11.11.0+sha512.4463f65fd80ed80d69bc1d4bf163ee94f605c7380fc318bb5b2ebe15f8cd12d49c51a4d59e951b401e764d3b6ca751cbf51bc50ed7001a6bcb4935e684c34882",
+  "packageManager": "pnpm@11.14.0+sha512.66c1ac4c7d4762d6d7dde44c7f3e5a73591ed0a0806e751d4ed32d4f004f25b2285a906b1fd8a9e3e621df3b4e2858bf88e50e0cf626bedbe977fe434a5caf85",
   "publishConfig": {
     "access": "public"
   }

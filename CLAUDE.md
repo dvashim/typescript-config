@@ -11,7 +11,7 @@ This is `@dvashim/typescript-config` — a published npm package providing share
 - `pnpm run check` — runs all checks (format + exports + TypeScript validation)
 - `pnpm run check:format` — checks formatting via Biome (extends `@dvashim/biome-config`); covers `dist/` JSON files too
 - `pnpm biome format --write .` — auto-fix formatting
-- `pnpm run check:exports` — validates package exports with `validate-package-exports`
+- `pnpm run check:exports` — validates package exports with `publint` (packs the package and checks every export resolves and is published)
 - `pnpm run check:ts` — runs `tsc -p` on each `tests/*.json` config (type-check tests plus emit smoke tests; fails fast on first error)
 - `tsc -p tests/tsconfig-test.<variant>.json` — type-check a single config variant (e.g., `tsc -p tests/tsconfig-test.node.json`)
 - `pnpm run changeset` — create a changeset for versioning
