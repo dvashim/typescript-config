@@ -7,18 +7,6 @@
 [![TypeScript][ts-badge]][ts-link]
 [![Socket][socket-badge]][socket-link]
 
-[ci-badge]: https://img.shields.io/github/actions/workflow/status/dvashim/typescript-config/release.yml?branch=main&logo=github&label=CI
-[ci-link]: https://github.com/dvashim/typescript-config/actions/workflows/release.yml
-[npm-badge]: https://img.shields.io/npm/v/@dvashim/typescript-config?label=@dvashim/typescript-config&logo=npm&color=07c
-[downloads-badge]: https://img.shields.io/npm/dm/@dvashim/typescript-config?logo=npm&color=07c
-[npm-link]: https://www.npmjs.com/package/@dvashim/typescript-config
-[license-badge]: https://img.shields.io/npm/l/@dvashim/typescript-config?color=07c
-[license-link]: https://github.com/dvashim/typescript-config/blob/main/LICENSE
-[ts-badge]: https://img.shields.io/badge/TypeScript-%3E%3D_7-07c?logo=typescript&logoColor=fff
-[ts-link]: https://www.typescriptlang.org/
-[socket-badge]: https://socket.dev/api/badge/npm/package/@dvashim/typescript-config
-[socket-link]: https://socket.dev/npm/package/@dvashim/typescript-config
-
 `@dvashim/typescript-config` provides shareable `tsconfig.json` presets for libraries, React applications, and Node.js tooling — strict ES2025 + ESM defaults with bundler module resolution.
 
 ## Contents
@@ -26,10 +14,25 @@
 - [Quick start](#quick-start)
 - [Why](#why)
 - [Requirements](#requirements)
+  - [Compatibility](#compatibility)
 - [Installation](#installation)
 - [Presets](#presets)
+  - [Choosing a preset](#choosing-a-preset)
 - [Usage](#usage)
+  - [Base preset](#base-preset)
+  - [Library presets: lib-dev and lib-prod](#library-presets-lib-dev-and-lib-prod)
+  - [React preset: app-react](#react-preset-app-react)
+  - [Vite React preset: app-react-vite](#vite-react-preset-app-react-vite)
+  - [Node preset](#node-preset)
+  - [Combining presets in one project](#combining-presets-in-one-project)
+  - [Composing presets](#composing-presets)
 - [Options](#options)
+  - [Base](#base)
+  - [Library development](#library-development)
+  - [Library production](#library-production)
+  - [React JSX application](#react-jsx-application)
+  - [Vite + React JSX application](#vite--react-jsx-application)
+  - [Node](#node)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
 - [License](#license)
@@ -350,19 +353,33 @@ Extends base for Node.js tooling files, type-checked only — see [Node preset](
 - **`tsc` is not found, or the editor falls back to its bundled TypeScript** — the `typescript` peer dependency is not installed; see [Installation](#installation).
 - **Stale errors or missing IntelliSense after install** — restart the TS server after the first install or after changing `extends`: in VS Code, run "TypeScript: Restart TS Server" from the Command Palette.
 
+To see what a preset actually contributes, run `npx tsc --showConfig`: it prints your config with `extends` resolved, listing the options the presets set explicitly (TypeScript's own defaults are not shown).
+
 ## Contributing
 
-Issues and pull requests are welcome at [dvashim/typescript-config](https://github.com/dvashim/typescript-config). Security reports go through the [security policy](./SECURITY.md).
+Issues and pull requests are welcome at [dvashim/typescript-config](https://github.com/dvashim/typescript-config). Security reports go through the [security policy](https://github.com/dvashim/typescript-config/blob/main/SECURITY.md).
 
 Development uses [pnpm](https://pnpm.io) (version pinned via the `packageManager` field) on Node.js 24:
 
 ```bash
 pnpm install
-pnpm run check # format + exports + type-check every preset (plus emit smoke tests)
+pnpm run check # format, package exports, and type-check every preset (plus emit smoke tests)
 ```
 
-The JSON presets in `dist/` are the committed source of truth — edit them directly and update the matching test config in `tests/`. This project uses [Changesets](https://github.com/changesets/changesets) for versioning; run `pnpm run changeset` alongside changes to the presets in `dist/` to describe them (dev-dependency, test, and doc changes don't need one). See the [CHANGELOG](./CHANGELOG.md) for release history.
+The JSON presets in `dist/` are the committed source of truth — edit them directly and update the matching test config in `tests/`. This project uses [Changesets](https://github.com/changesets/changesets) for versioning; run `pnpm run changeset` alongside changes to the presets in `dist/` to describe them (dev-dependency, test, and doc changes don't need one). See the [CHANGELOG](https://github.com/dvashim/typescript-config/blob/main/CHANGELOG.md) for release history.
 
 ## License
 
 [MIT](./LICENSE) © Aleksei Reznichenko
+
+[ci-badge]: https://img.shields.io/github/actions/workflow/status/dvashim/typescript-config/release.yml?branch=main&logo=github&label=CI
+[ci-link]: https://github.com/dvashim/typescript-config/actions/workflows/release.yml
+[npm-badge]: https://img.shields.io/npm/v/@dvashim/typescript-config?label=@dvashim/typescript-config&logo=npm&color=07c
+[downloads-badge]: https://img.shields.io/npm/dm/@dvashim/typescript-config?logo=npm&color=07c
+[npm-link]: https://www.npmjs.com/package/@dvashim/typescript-config
+[license-badge]: https://img.shields.io/npm/l/@dvashim/typescript-config?color=07c
+[license-link]: https://github.com/dvashim/typescript-config/blob/main/LICENSE
+[ts-badge]: https://img.shields.io/badge/TypeScript-%3E%3D_7-07c?logo=typescript&logoColor=fff
+[ts-link]: https://www.typescriptlang.org/
+[socket-badge]: https://socket.dev/api/badge/npm/package/@dvashim/typescript-config
+[socket-link]: https://socket.dev/npm/package/@dvashim/typescript-config
