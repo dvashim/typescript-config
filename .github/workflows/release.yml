@@ -25,11 +25,7 @@ jobs:
       - uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v6
         with:
-          # Pinned to 24.16.0: Node 24.17.0's bundled undici breaks the
-          # @changesets/changelog-github GraphQL call with "Premature close" during
-          # `changeset version` (the last green release ran on 24.16.0). Staying on
-          # 24.x keeps parity with .node-version (24); bump once a newer 24.x fixes it.
-          node-version: '24.16.0'
+          node-version-file: '.node-version'
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
       - run: pnpm run check
