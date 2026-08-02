@@ -1,0 +1,12 @@
+# Normalize to LF in the index and on checkout, regardless of platform or
+# core.autocrlf. @dvashim/biome-config pins lineEnding: "lf", so a CRLF
+# checkout would fail `pnpm run check:format` on every file.
+* text=auto eol=lf
+
+# The tsconfig presets and their tests use // comments. GitHub highlights
+# .json with a strict-JSON grammar and would flag those lines as errors.
+dist/*.json  linguist-language=jsonc
+tests/*.json linguist-language=jsonc
+
+# Show the enclosing heading in diff hunk headers.
+*.md diff=markdown
