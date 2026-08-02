@@ -51,7 +51,7 @@ Emit smoke tests (`tsconfig-emit.lib-dev.json`, `tsconfig-emit.lib-prod.json`) c
 
 Uses [Changesets](https://github.com/changesets/changesets) for versioning. The `.changeset/config.json` is configured with `"commit": true` and GitHub changelog. CI runs `check` on PRs to main, plus a `peer-typescript` matrix job that runs `check:ts` against the latest TypeScript in the peer range (currently `typescript@7`; add new majors to the matrix when the range admits them); the `release.yml` workflow runs on push to main and handles publishing via `changesets/action`.
 
-`release.yml` deliberately pins Node to an exact `24.16.0` (rather than `.node-version`) — see the comment there before bumping it.
+Both workflows resolve Node from `.node-version`; neither carries an exact pin. Note that `changeset version` reaches GitHub's GraphQL API through `node-fetch@2` (inside `@changesets/get-github-info`), which leaves it sensitive to Node `http.Agent` regressions — Node 24.17.0 broke it with `ERR_STREAM_PREMATURE_CLOSE` (fixed in 24.18.0) and forced a temporary exact pin on `release.yml`. It fails safe (no changesets applied, nothing published), so pinning to the last green Node is the workaround if it recurs.
 
 Changes to `dist/` (the published artifact) require a changeset; dev-dependency, test, CI, and doc changes do not.
 
