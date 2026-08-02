@@ -1,5 +1,15 @@
 # @dvashim/typescript-config
 
+## 5.0.3
+
+### Patch Changes
+
+- [#115](https://github.com/dvashim/typescript-config/pull/115) [`7dd76ef`](https://github.com/dvashim/typescript-config/commit/7dd76efca7aa4955566adee6ce54e392b62ba980) - Update repository tooling and CI
+
+  - **Deps:** Update dev dependencies and bump pnpm to 11.18.0
+  - **CI:** Resolve the release workflow's Node version from `.node-version` instead of an exact pin
+  - **Repo:** Add `.gitattributes` to force LF checkouts and mark the commented tsconfig presets as jsonc
+
 ## 5.0.2
 
 ### Patch Changes
