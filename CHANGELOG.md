@@ -1,5 +1,11 @@
 # @dvashim/typescript-config
 
+## 5.0.4
+
+### Patch Changes
+
+- [#117](https://github.com/dvashim/typescript-config/pull/117) [`5a6209e`](https://github.com/dvashim/typescript-config/commit/5a6209e1ebcdc6f149ee0c486def19edfd7ae6cb) - Update dev dependencies (Biome, Biome config, publint) and bump pnpm to 11.20.0
+
 ## 5.0.3
 
 ### Patch Changes
