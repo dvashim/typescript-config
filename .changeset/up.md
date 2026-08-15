@@ -10,4 +10,4 @@ Upgrade release tooling to Changesets v3 and harden the CI workflows
 - **CI:** Run the check workflow on pushes to `main` as well as pull requests, so the CI badge reflects a workflow that actually validates the default branch
 - **CI:** Correct a stale `actions/setup-node` version comment (the pinned SHA is v7.0.0, not v6) and group Dependabot's GitHub Actions updates into a single weekly pull request
 - **Docs:** Point the CI badge at `check.yml` instead of the release workflow
-- **Deps:** Bump dev dependencies (biome, changesets, biome-config, `@types/node`) and pnpm to 11.21.0
+- **Deps:** Bump dev dependencies (biome, changesets, `@types/node`) and pnpm to 11.21.0
