@@ -372,8 +372,8 @@ The JSON presets in `dist/` are the committed source of truth — edit them dire
 
 [MIT](./LICENSE) © Aleksei Reznichenko
 
-[ci-badge]: https://img.shields.io/github/actions/workflow/status/dvashim/typescript-config/release.yml?branch=main&logo=github&label=CI
-[ci-link]: https://github.com/dvashim/typescript-config/actions/workflows/release.yml
+[ci-badge]: https://img.shields.io/github/actions/workflow/status/dvashim/typescript-config/check.yml?branch=main&logo=github&label=CI
+[ci-link]: https://github.com/dvashim/typescript-config/actions/workflows/check.yml
 [npm-badge]: https://img.shields.io/npm/v/@dvashim/typescript-config?label=@dvashim/typescript-config&logo=npm&color=07c
 [downloads-badge]: https://img.shields.io/npm/dm/@dvashim/typescript-config?logo=npm&color=07c
 [npm-link]: https://www.npmjs.com/package/@dvashim/typescript-config
