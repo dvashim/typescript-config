@@ -1,5 +1,15 @@
 # @dvashim/typescript-config
 
+## 5.0.7
+
+### Patch Changes
+
+- [#125](https://github.com/dvashim/typescript-config/pull/125) [`2a2ba38`](https://github.com/dvashim/typescript-config/commit/2a2ba38573210a054d5a1ffd7799f19e8c809f74) - Document the `import.meta` typing gap in the base and library presets
+  
+  - **Docs:** Add a Troubleshooting entry for `TS2339: Property 'url' does not exist on type 'ImportMeta'`, covering the affected presets and how to resolve it
+  - **Docs:** Note the same limitation in the library preset and preset-composition sections
+  - **Docs:** Expand Contributing with the individual `check:*` scripts and how to check one preset
+
 ## 5.0.6
 
 ### Patch Changes
