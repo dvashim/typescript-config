@@ -178,7 +178,7 @@ A library uses the two presets together. `tsconfig.json` extends `lib-dev` and d
 }
 ```
 
-> Both presets **emit**, so set `outDir` (and usually `rootDir`) yourself; otherwise output lands next to your sources. Because `composite` is on, compile in build mode: `tsc -b` (or `tsc -b -w`) during development and `tsc -b tsconfig.prod.json` for releases — this gives you incremental builds, project references (monorepos), and a `.tsbuildinfo` cache. The two configs share an `outDir` but keep separate `.tsbuildinfo` caches, so clean the output directory (or pass `--force`) before a release build to keep stale development artifacts (`.js.map`, `.d.ts.map`) out of the published package.
+> Both presets **emit**, so set `outDir` (and usually `rootDir`) yourself; otherwise output lands next to your sources. Because `composite` is on, compile in build mode: `tsc -b` (or `tsc -b -w`) during development and `tsc -b tsconfig.prod.json` for releases — this gives you incremental builds, project references (monorepos), and a `.tsbuildinfo` cache. The two configs share an `outDir` but keep separate `.tsbuildinfo` caches, so clean the output directory (or pass `--force`) before a release build to keep stale development artifacts (`.js.map`, `.d.ts.map`) out of the published package. Both presets inherit the ES2025-only `lib`, so library sources that read `import.meta.url` need `"types": ["node"]` in your own config — see [Troubleshooting](#troubleshooting).
 
 ### React preset: app-react
 
@@ -259,7 +259,7 @@ A single project often needs two presets — for example, a Vite app whose `src`
 
 ### Composing presets
 
-- **Ambient types are off by default.** TypeScript 7 defaults to `types: []`, so `@types/*` packages are not auto-discovered. If you rely on global types (e.g. `node`, `vite/client`, `vitest/globals`), add them to `types` in your own config — the Node and Vite presets already do this for their cases.
+- **Ambient types are off by default.** TypeScript 7 defaults to `types: []`, so `@types/*` packages are not auto-discovered. If you rely on global types (e.g. `node`, `vite/client`, `vitest/globals`), add them to `types` in your own config — the Node and Vite presets already do this for their cases. The same applies to `import.meta`: its members are contributed by ambient types rather than by the ES2025 lib, so `import.meta.url` needs `"types": ["node"]` (or a DOM lib) to type-check.
 - **Layering presets.** `extends` accepts an array, so you can compose a preset with project-specific overrides, e.g. `"extends": ["@dvashim/typescript-config/node", "./tsconfig.paths.json"]`.
 
 ## Options
@@ -349,6 +349,7 @@ Extends base for Node.js tooling files, type-checked only — see [Node preset](
 - **`error TS2688: Cannot find type definition file for 'node'`** — the Node preset loads Node.js types; install `@types/node`.
 - **`error TS2688: Cannot find type definition file for 'vite/client'`** — the Vite preset loads Vite's client types; install `vite` in the same package.
 - **`TS2875`/`TS7026` on JSX tags** — the automatic JSX runtime can't find React's types; install `react` and `@types/react`.
+- **`error TS2339: Property 'url' does not exist on type 'ImportMeta'`** — `import.meta` members are contributed by ambient types, not by the ES2025 lib, so the base and library presets leave them untyped. Add `"types": ["node"]` (with `@types/node` installed) to type `url`, `dirname`, and `filename`. The Node preset already does this; the React presets get `url` from the DOM lib but still need `@types/node` for `dirname`/`filename`.
 - **`error TS5011: … The 'rootDir' setting must be explicitly set`** — you added an `outDir` to the base preset without a `rootDir`; set `"rootDir": "./src"` (or your source root) alongside it. The library presets are unaffected (`composite` supplies a `rootDir`).
 - **`tsc` is not found, or the editor falls back to its bundled TypeScript** — the `typescript` peer dependency is not installed; see [Installation](#installation).
 - **Stale errors or missing IntelliSense after install** — restart the TS server after the first install or after changing `extends`: in VS Code, run "TypeScript: Restart TS Server" from the Command Palette.
@@ -365,6 +366,14 @@ Development uses [pnpm](https://pnpm.io) (version pinned via the `packageManager
 pnpm install
 pnpm run check # format, package exports, and type-check every preset (plus emit smoke tests)
 ```
+
+`check` fans out to three scripts that run concurrently; each also runs on its own:
+
+- `pnpm run check:format` — formatting, via [Biome](https://biomejs.dev) (`pnpm exec biome format --write .` applies the fixes).
+- `pnpm run check:publint` — packs the package and verifies every `exports` entry resolves, with warnings treated as errors.
+- `pnpm run check:ts` — runs `tsc -p` over every config in `tests/`, stopping at the first failure.
+
+To check one preset in isolation, run `pnpm exec tsc -p tests/tsconfig-test.<variant>.json`.
 
 The JSON presets in `dist/` are the committed source of truth — edit them directly and update the matching test config in `tests/`. This project uses [Changesets](https://github.com/changesets/changesets) for versioning; run `pnpm run changeset` alongside changes to the presets in `dist/` to describe them (dev-dependency, test, and doc changes don't need one). See the [CHANGELOG](https://github.com/dvashim/typescript-config/blob/main/CHANGELOG.md) for release history.
 
