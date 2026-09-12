@@ -266,7 +266,7 @@ A single project often needs two presets — for example, a Vite app whose `src`
 
 ### Base
 
-Options listed below are set explicitly. Additional options rely on TypeScript 7 defaults rather than being restated: `strict`, `module: "esnext"`, `moduleResolution: "bundler"`, `noUncheckedSideEffectImports`, `forceConsistentCasingInFileNames`, `useDefineForClassFields`, `esModuleInterop`, and `types: []` (blocks ambient `@types/*` auto-discovery).
+Options listed below are set explicitly. Additional options rely on TypeScript 7 defaults rather than being restated: `strict`, `module: "esnext"`, `moduleResolution: "bundler"`, `noUncheckedSideEffectImports`, `forceConsistentCasingInFileNames`, `useDefineForClassFields`, `esModuleInterop`, and `types: []` (blocks ambient `@types/*` auto-discovery). `target` and `lib` are pinned even though `es2025` is also the TypeScript 7 default: that default tracks the current ECMAScript edition and can move with a TypeScript release, while the presets promise ES2025 output.
 
 | Option | Value | Effect |
 | ------ | ----- | ------ |

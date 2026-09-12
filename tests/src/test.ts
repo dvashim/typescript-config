@@ -7,13 +7,10 @@ export interface Config {
   value?: string
 }
 
-function check(config: Config): void {
+export function describe(config: Config): string {
   const items: string[] = ['a', 'b']
   const first: string | undefined = items[0]
-  if (first !== undefined) {
-    console.log(first)
-  }
-  console.log(config.name)
+  return first === undefined ? config.name : `${first}:${config.name}`
 }
 
-check({ name: 'test' })
+export const result: string = describe({ name: 'test' })
