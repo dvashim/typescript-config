@@ -37,8 +37,11 @@ jobs:
     name: Check configs with typescript@${{ matrix.typescript }}
     runs-on: ubuntu-latest
     strategy:
+      # Report every entry: one failure must not cancel the others.
+      fail-fast: false
       matrix:
-        typescript: ['7']
+        # 'latest' picks up a newly released major the open peer range already admits.
+        typescript: ['7', 'latest']
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -50,4 +53,6 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
       - run: pnpm add --save-dev typescript@${{ matrix.typescript }}
+      # pnpm's release-age gate can resolve a tag to an older release; log the real one.
+      - run: pnpm exec tsc --version
       - run: pnpm run check:ts
