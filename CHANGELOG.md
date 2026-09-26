@@ -1,5 +1,14 @@
 # @dvashim/typescript-config
 
+## 5.0.10
+
+### Patch Changes
+
+- [#139](https://github.com/dvashim/typescript-config/pull/139) [`6af0175`](https://github.com/dvashim/typescript-config/commit/6af01756c80307d07a0882ff9b592f97ddbe667c) - Update development dependencies and pnpm
+  
+  - **Deps:** Bump `@biomejs/biome` to ^2.5.14, `@changesets/cli` to ^3.0.3, `@dvashim/biome-config` to ^1.18.0, `@types/node` to ^26.6.2, and `vite` to ^8.3.1
+  - **Tooling:** Bump pnpm to 12.6.0
+
 ## 5.0.9
 
 ### Patch Changes
