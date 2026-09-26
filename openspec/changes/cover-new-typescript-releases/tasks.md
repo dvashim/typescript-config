@@ -10,4 +10,4 @@
 
 - [x] 2.1 Verify `openspec validate cover-new-typescript-releases --strict` passes
 - [x] 2.2 Verify `git diff --stat main...HEAD` touches only `.github/workflows/check.yml`, `CLAUDE.md`, and `openspec/changes/cover-new-typescript-releases/` — nothing under `dist/`, so no changeset is needed
-- [ ] 2.3 On the pull request, verify the `peer-typescript` job shows `typescript@7` and `typescript@latest` both passing, each log shows the installed TypeScript version (7.0.2 at the time of writing), and the `check` job passes
+- [x] 2.3 On the pull request, verify the `peer-typescript` job shows `typescript@7` and `typescript@latest` both passing, each log shows the installed TypeScript version (7.0.2 at the time of writing), and the `check` job passes
