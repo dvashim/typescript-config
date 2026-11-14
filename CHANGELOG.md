@@ -1,5 +1,14 @@
 # @dvashim/typescript-config
 
+## 5.0.11
+
+### Patch Changes
+
+- [#147](https://github.com/dvashim/typescript-config/pull/147) [`99d046d`](https://github.com/dvashim/typescript-config/commit/99d046ddd2f7587fe769389666245f952df40e8d) - Update development dependencies and pnpm
+  
+  - **Deps:** Bump `@biomejs/biome` to ^2.6.7, `@dvashim/biome-config` to ^1.22.0, `@types/node` to ^26.6.6, `publint` to ^0.3.25, and `vite` to ^8.3.8
+  - **Tooling:** Bump pnpm to 12.18.0 and turn off Biome's Markdown and YAML formatters
+
 ## 5.0.10
 
 ### Patch Changes
