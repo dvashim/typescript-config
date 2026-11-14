@@ -11,7 +11,7 @@ TypeScript **>= 7** is a peer dependency. The presets deliberately omit options 
 ## Commands
 
 - `pnpm run check` — runs every `check:*` script via pnpm's regex script matching (`pnpm run "/^check:.*/"`). They run **concurrently** with prefixed output, so read all three sections instead of stopping at the first.
-- `pnpm run check:format` — Biome format check (config extends `@dvashim/biome-config`); covers the JSON in `dist/` and `tests/` as well as source.
+- `pnpm run check:format` — Biome format check (config extends `@dvashim/biome-config`); covers the JSON in `dist/` and `tests/` as well as source. Biome's Markdown and YAML formatters are off — see Repo conventions.
 - `pnpm exec biome format --write .` — auto-fix formatting.
 - `pnpm run check:publint` — `publint --strict`: packs the package and verifies every `exports` entry resolves and is actually published. Warnings are errors.
 - `pnpm run check:ts` — `tsc -p` over every `tests/*.json` config (type-check tests plus emit smoke tests), failing fast on the first error.
@@ -62,7 +62,7 @@ Changes to `dist/` require a changeset; dev-dependency, test, CI, and doc change
 
 ## Releases and CI
 
-Changesets **v3** CLI paired with `changesets/action` **v2** — the two are version-locked and refuse to run against each other's majors. `.changeset/config.json` uses `"commit": true`, the GitHub changelog, and `"format": false` (v3's replacement for the removed `prettier` option; Biome doesn't format Markdown, so changelogs stay unformatted rather than pulling in a second formatter).
+Changesets **v3** CLI paired with `changesets/action` **v2** — the two are version-locked and refuse to run against each other's majors. `.changeset/config.json` uses `"commit": true`, the GitHub changelog, and `"format": false` (v3's replacement for the removed `prettier` option; v3 can run only Prettier, oxfmt, Deno, or dprint — not Biome — so changelogs stay unformatted rather than pulling in a second formatter).
 
 `check.yml` runs on PRs to main **and on pushes to main** — the README's CI badge reads its `branch=main` conclusion, and the `package-readme` spec requires the badge to reflect a workflow that actually validates main. `cancel-in-progress` is disabled on main so a superseded run can't leave the badge reading "cancelled". Alongside `check`, a `peer-typescript` matrix job runs `check:ts` against `typescript@7`, the floor of the peer range, and `typescript@latest`, which picks up a newly released major the open-ended range already admits without editing the matrix — up to a day late, because pnpm's release-age gate resolves the tag to the newest mature release, so the job logs the version it actually installed. `fail-fast` is off so one entry's failure never hides another's result. When a newer major takes over `latest`, add an explicit entry for the one it replaced; if the peer range ever gains an upper bound, replace `latest` with explicit entries for every admitted major.
 
@@ -70,7 +70,7 @@ Changesets **v3** CLI paired with `changesets/action` **v2** — the two are ver
 
 ## Specs (OpenSpec)
 
-`openspec/specs/` holds two governing specs. Changes are proposed under `openspec/changes/` and moved to `openspec/changes/archive/<date>-<name>/` when done; the `/opsx:propose`, `/opsx:apply`, `/opsx:archive` skills drive this through the globally installed `openspec` CLI.
+`openspec/specs/` holds two governing specs. Changes are proposed under `openspec/changes/` and moved to `openspec/changes/archive/<date>-<name>/` when done; the `openspec-propose`, `openspec-apply-change`, `openspec-archive-change` skills drive this through the globally installed `openspec` CLI.
 
 - **`package-readme`** — the README is spec-governed. Option tables mirror `dist/*.json` exactly, the specifier table matches `package.json` `exports`, quoted errors are ones `tsc` really emits, and the TS 7 defaults list appears exactly once. Update the README alongside preset changes.
 - **`preset-validation`** — what the test suite must guarantee: a type-check test per preset, emit smoke tests for the emitting presets writing only into gitignored `tests/out/`, and CI coverage for every TypeScript major in the peer range.
@@ -78,3 +78,5 @@ Changesets **v3** CLI paired with `changesets/action` **v2** — the two are ver
 ## Repo conventions
 
 `.gitattributes` forces LF in the index and on checkout: `@dvashim/biome-config` pins `lineEnding: "lf"`, so a CRLF checkout would fail `check:format` on every file. It also marks `dist/*.json` and `tests/*.json` as `jsonc` for GitHub — those files use `//` comments, which a strict-JSON grammar would flag.
+
+Biome 2.6+ formats Markdown and YAML by default; `biome.json` turns both formatters off. Most of that Markdown and YAML is tool-written — `CHANGELOG.md` and `.changeset/*.md` (changesets), `.agents/` and `openspec/` (OpenSpec) — and Biome's Markdown style conflicts with what those tools emit, so formatting it would fail `check:format` after every release or archive. To re-enable either formatter, first exempt those paths with an `overrides` entry setting `formatter.enabled: false`; for YAML, also set `quoteStyle: "single"` and `bracketSpacing: false`, or Biome rewrites the `.github/` YAML. Biome accepts comments only in `biome.jsonc`, so this rationale lives here rather than in `biome.json`.

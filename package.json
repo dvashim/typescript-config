@@ -37,16 +37,16 @@
     "typescript": ">=7.0.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.5.14",
+    "@biomejs/biome": "^2.6.7",
     "@changesets/changelog-github": "^1.0.1",
     "@changesets/cli": "^3.0.3",
-    "@dvashim/biome-config": "^1.18.0",
-    "@types/node": "^26.6.2",
-    "publint": "^0.3.24",
+    "@dvashim/biome-config": "^1.22.0",
+    "@types/node": "^26.6.6",
+    "publint": "^0.3.25",
     "typescript": "^7.0.2",
-    "vite": "^8.3.1"
+    "vite": "^8.3.8"
   },
-  "packageManager": "pnpm@12.6.0+sha512.3ef68f951cb111ac204b4a5a16f0b2ddf0da56a96e0413e81d855d9f0b55ef926714709028e1cd00c405c2c5fb7b9e8ec4dc46777c805d0373c2f2ff00fd20ec",
+  "packageManager": "pnpm@12.18.0+sha512.9d7882d5dc82147ecfc4e062aa34834e0ad0296710a1837a1115ae012127d36b7109e321ac1598a1dd0a65597681b1e99917e12ed0d749eae91187943363beb3",
   "publishConfig": {
     "access": "public"
   }
