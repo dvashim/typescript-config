@@ -70,7 +70,7 @@ Changesets **v3** CLI paired with `changesets/action` **v2** — the two are ver
 
 ## Specs (OpenSpec)
 
-`openspec/specs/` holds two governing specs. Changes are proposed under `openspec/changes/` and moved to `openspec/changes/archive/<date>-<name>/` when done; the `/opsx:propose`, `/opsx:apply`, `/opsx:archive` skills drive this through the globally installed `openspec` CLI.
+`openspec/specs/` holds two governing specs. Changes are proposed under `openspec/changes/` and moved to `openspec/changes/archive/<date>-<name>/` when done; the `openspec-propose`, `openspec-apply-change`, `openspec-archive-change` skills drive this through the globally installed `openspec` CLI.
 
 - **`package-readme`** — the README is spec-governed. Option tables mirror `dist/*.json` exactly, the specifier table matches `package.json` `exports`, quoted errors are ones `tsc` really emits, and the TS 7 defaults list appears exactly once. Update the README alongside preset changes.
 - **`preset-validation`** — what the test suite must guarantee: a type-check test per preset, emit smoke tests for the emitting presets writing only into gitignored `tests/out/`, and CI coverage for every TypeScript major in the peer range.
